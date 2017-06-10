@@ -21,8 +21,8 @@ An Ansible role for setting up something for whatever purpose.
 |`networkpkg`| `true`||
 |`officepkg`| `true`||
 |`createpkg`| `true`||
-|`i3user`| splatrat||
-|`i3group`| splatrat||
+|`i3user`| foo ||
+|`i3group`| users ||
 
 
 ## Dependencies
