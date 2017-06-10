@@ -1,0 +1,46 @@
+// based on a keyboard map from an 'xkb/symbols/se' file
+
+default  partial alphanumeric_keys
+xkb_symbols "basic" {
+    include "latin(type2)"
+    include "op(se)"
+};
+
+partial alphanumeric_keys
+xkb_symbols "se" {
+
+    name[Group1]="Splatrat";
+
+    key <TLDE>	{ [asciitilde,   section,     paragraph, threequarters]	};
+    key <AE01>  { [    exclam,          1,   exclamdown,  onesuperior ] };
+    key <AE02>  { [  quotedbl,          2,           at,  twosuperior ] };
+    key <AE03>  { [numbersign,          3,     sterling,threesuperior ] };
+    key <AE04>  { [    dollar,          4,     currency, onequarter   ] };
+    key <AE05>	{ [   percent,          5,     EuroSign,         cent ]	};
+    key <AE06>  { [ ampersand,          6,          yen,   fiveeights ] };
+    key <AE07>  { [     slash,          7,    braceleft,   division   ] };
+    key <AE08>  { [ parenleft,          8,  bracketleft, guillemotleft] };
+    key <AE09>  { [parenright,          9, bracketright,guillemotright] };
+    key <AE10>  { [     equal,          0,   braceright,        degree] };
+    key <AE11>	{ [ braceleft,   question,         plus, questiondown ]	};
+    key <AE12>	{ [braceright, dead_acute,        grave,      notsign ]	};
+
+
+    key <AD11>  { [	aring,      Aring,dead_diaresis,dead_abovering] };
+    key <AD12>	{ [ backslash,asciicircum,dead_circumflex,dead_diaresis]};
+    
+
+    key <AC10>	{ [odiaeresis, Odiaeresis,       oslash,     Ooblique ]	};
+    key <AC11>	{ [adiaeresis, Adiaeresis,           ae,           AE ]	};
+
+    key <BKSL>	{ [ apostrophe,    asterisk,        acute,     multiply ]	};
+
+    key <SPCE>	{ [     space,      space,        space, nobreakspace ]	};
+
+    key <LSGT>  { [      less,     greater,         bar,    brokenbar ] };
+    include "kpdl(comma)"
+
+    include "level3(caps_switch)"
+    include "level3(ralt_switch)"
+};
+

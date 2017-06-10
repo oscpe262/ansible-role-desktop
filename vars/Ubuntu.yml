@@ -1,0 +1,78 @@
+## roles/desktop/vars/Ubuntu.yml
+# General variables associated with this role.
+# vim:ft=ansible:
+---
+xorg:
+  xorg: present
+
+i3:
+  arandr: present
+  compton: present
+  dmenu: present
+  i3: present
+  lxappearance: present
+  nitrogen: present
+  rofi: present
+
+kde:
+  plasma-desktop: present
+
+media:
+  ffmpeg: present
+  kodi: present
+  vlc: present
+
+appearance:
+  ttf-dejavu: present
+  ttf-bitstream-vera: present
+  powerline: present
+  fonts-powerline: present
+  numix-gtk-theme: present
+  numix-icon-theme: present
+  xcursor-themes: present
+
+tools:
+  colordiff: present
+  gparted: present
+  htop: present
+  lm-sensors: present
+  lvm2: present
+  mdadm: present
+  mlocate: present
+  most: present
+  ncdu: present
+  pavucontrol: present
+  rsync: present
+  screen: present
+  unrar: present
+  wget: present
+
+browsers:
+  firefox: present
+  chromium-browser: present
+  chromium-codecs-ffmpeg: present
+
+latex:
+  texlive-full: present
+  biber: present
+  latex-beamer: present
+
+office:
+  libreoffice-core: absent
+
+desktop:
+  evince: present
+  galculator: present
+  gimp: present
+  rxvt-unicode-256color: present
+  thunar-dropbox-plugin: present
+  viewnior: present
+
+network:
+  dnsmasq: present
+
+create:
+  blender: present
+  inkscape: present
+
+...

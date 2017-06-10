@@ -1,0 +1,125 @@
+## roles/desktop/tasks/Archlinux.yml
+## Role main file
+# vim:ft=ansible:
+---
+- name: "Install i3"
+  pacaur:
+    name: '{{ item.key }}'
+  become: true
+  become_user: '{{ i3user }}'
+  with_dict: '{{ i3 }}'
+  when: i3pkg == true
+  tags: i3
+
+- name: "Install KDE"
+  pacaur:
+    name: '{{ item.key }}'
+  become: true
+  become_user: '{{ i3user }}'
+  with_dict: '{{ kde }}'
+  when: kdepkg == true
+  tags: kde
+
+- name: "Install media players and codecs"
+  pacaur:
+    name: '{{ item.key }}'
+  become: true
+  become_user: '{{ i3user }}'
+  with_dict: '{{ media }}'
+  when: mediapkg == true
+  tags: media
+
+- name: "Install icons, themes, powerline, fonts ..."
+  pacaur:
+    name: '{{ item.key }}'
+  become: true
+  become_user: '{{ i3user }}'
+  with_dict: '{{ appearance }}'
+  when: appearancepkg == true
+  tags: appearance
+
+- name: "Install useful tools"
+  pacaur:
+    name: '{{ item.key }}'
+  become: true
+  become_user: '{{ i3user }}'
+  with_dict: '{{ tools }}'
+  when: toolspkg == true
+  tags: tools
+
+- name: "Install browsers"
+  pacaur:
+    name: '{{ item.key }}'
+  become: true
+  become_user: '{{ i3user }}'
+  with_dict: '{{ browsers }}'
+  when: browserspkg == true
+  tags: browsers
+
+- name: "Install desktop applications"
+  pacaur:
+    name: '{{ item.key }}'
+  become: true
+  become_user: '{{ i3user }}'
+  with_dict: '{{ desktop }}'
+  when: i3pkg == true or desktoppkg == true
+  tags: i3,kde
+
+- name: "Install network applications"
+  pacaur:
+    name: '{{ item.key }}'
+  become: true
+  become_user: '{{ i3user }}'
+  with_dict: '{{ network }}'
+  when: i3pkg == true or networkpkg == true
+  tags: network,i3
+
+- name: "Install LaTeX"
+  pacaur:
+    name: '{{ item.key }}'
+  become: true
+  become_user: '{{ i3user }}'
+  with_dict: '{{ latex }}'
+  when: latexpkg == true
+  tags: latex
+
+- name: "Install office applications"
+  pacaur:
+    name: '{{ item.key }}'
+  become: true
+  become_user: '{{ i3user }}'
+  with_dict: '{{ office }}'
+  when: officepkg == true
+  tags: office
+################################
+
+- name: Creation applications
+  pacaur:
+    name: '{{ item.key }}'
+  become: true
+  become_user: '{{ i3user }}'
+  with_dict: '{{ create }}'
+  when: "'betelgeuse' in ansible_hostname and createpkg == true"
+  tags: betelgeuse
+
+- name: K290 keyboard
+  pacaur:
+    name: '{{ item }}'
+  become: true
+  become_user: '{{ i3user }}'
+  with_items:
+    - k290-fnkeyctl
+  when: "'betelgeuse' in ansible_hostname"
+  tags: betelgeuse
+
+#- name: "Enable Services"
+#  service:
+#    name: '{{ item }}'
+#    enabled: yes
+#  with_item.keys:
+#    - sddm
+#    - accounts-daemon
+#    - NetworkManager
+#  ignore_errors: yes
+#  tags: NetworkManager
+...

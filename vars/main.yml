@@ -1,0 +1,7 @@
+## roles/desktop/vars/main.yml
+# General variables associated with this role.
+# vim:ft=ansible:
+---
+## As packages go by different names etc., these lists are implemented on a 
+## per-distro basis.
+...

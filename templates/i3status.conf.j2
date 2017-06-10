@@ -1,0 +1,89 @@
+# i3status configuration file.
+
+general {
+        colors = true
+	color_good = "#B5BD68"
+	color_degraded = "#F0C674"
+	color_bad = "#cc6666"
+        interval = 1
+}
+
+#order += "ipv6"
+{% if 'saiph' in ansible_hostname %}
+order += "wireless wlp2s0"
+{% endif %}
+order += "disk /"
+{% if 'betelgeuse' in ansible_hostname %}
+order += "disk /LVM/Downloads"
+order += "disk /LVM"
+{% endif %}
+order += "cpu_temperature 0"
+order += "volume master"
+{% if 'saiph' in ansible_hostname %}
+order += "battery 0"
+{% endif %}
+order += "tztime local"
+
+
+wireless wlp2s0 {
+        format_up = "%essid %frequency %bitrate %ip"
+        format_down = "⚠ Not Connected ⚠"
+	min_width = 650
+	align = "left"
+}
+
+cpu_temperature 0 {
+	format = " %degrees° "
+	path = "/sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input"
+	max_threshold = "60"
+}
+
+battery 0 {
+        format = " %status %percentage"
+	last_full_capacity = "true"
+	integer_battery_capacity = "true"
+	status_chr = "⚇"
+	status_bat  = "⚡"
+	status_full = "☻"
+	low_threshold = "15"
+	min_width = 100
+	align = "center"
+
+}
+
+volume master {
+        format = " ♪ %volume "
+	format_muted = " ♪ muted "
+	device = "default"
+	mixer = "Master"
+	mixer_idx = 0
+}
+
+tztime local {
+        format = " %H:%M:%S"
+}
+
+disk "/" {
+  format = " ✓ (%avail / %total)"
+	low_threshold = "25"
+	threshold_type = "percentage_avail"
+	prefix_type = "decimal"
+#	min_width = 220
+#	align = "center"
+}
+disk "/LVM/Downloads" {
+  format = " ⌂ (%avail / %total) "
+	low_threshold = "25"
+	threshold_type = "percentage_avail"
+	prefix_type = "decimal"
+}
+disk "/LVM" {
+  format = "⛀ (%avail / %total) "
+	low_threshold = "50"
+	threshold_type = "gbytes_avail"
+	format_not_mounted="⛀ N/A"
+	prefix_type = "decimal"
+	min_width = 120
+	align = "center"
+#	align = "right"
+}

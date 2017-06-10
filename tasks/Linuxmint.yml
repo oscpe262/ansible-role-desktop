@@ -1,0 +1,72 @@
+## roles/desktop/tasks/Linuxmint.yml
+## Role main file
+# vim:ft=ansible:
+---
+- name: Update cache Linuxmint
+  apt:
+    update_cache: yes
+  when: "'Linuxmint' in ansible_distribution"
+
+- name: i3
+  package:
+    name: '{{ item.key  }}'
+    state: '{{ item.value }}'
+  with_dict: '{{ i3 }}'
+  when: i3pkg == true
+
+- name: media applications
+  package:
+    name: '{{ item.key }}'
+    state: '{{ item.value }}'
+  with_dict: '{{ media }}'
+  when: mediapkg == true
+
+- name: fonts, themes, powerline etc.
+  package:
+    name: '{{ item.key }}'
+    state: '{{ item.value }}'
+  with_dict: '{{ appearance }}'
+  when: appearancepkg == true
+
+- name: useful tools
+  package:
+    name: '{{ item.key }}'
+    state: '{{ item.value }}'
+  with_dict: '{{ tools }}'
+  when: toolspkg == true
+
+- name: browsers
+  package:
+    name: '{{ item.key }}'
+    state: '{{ item.value }}'
+  with_dict: '{{ browsers }}'
+  when: browserspkg == true
+
+- name: network tools
+  package:
+    name: '{{ item.key }}'
+    state: '{{ item.value }}'
+  with_dict: '{{ network }}'
+  when: networkpkg == true
+
+- name: LaTeX
+  package:
+    name: '{{ item.key }}'
+    state: '{{ item.value }}'
+  with_dict: '{{ latex }}'
+  when: latexpkg == true
+
+- name: Office Applications
+  package:
+    name: '{{ item.key }}'
+    state: '{{ item.value }}'
+  with_dict: '{{ office }}'
+  when: officepkg == true
+
+- name: Desktop Applications
+  package:
+    name: '{{ item.key }}'
+    state: '{{ item.value }}'
+  with_dict: '{{ desktop }}'
+  when: desktoppkg == true
+...

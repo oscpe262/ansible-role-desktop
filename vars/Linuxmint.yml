@@ -1,0 +1,51 @@
+## roles/desktop/vars/Linuxmint.yml
+# General variables associated with this role.
+# vim:ft=ansible:
+---
+xorg:
+  xorg: present
+
+i3:
+  dmenu: present
+  i3: present
+  rofi: present
+
+media:
+  vlc: present
+
+appearance:
+  ttf-dejavu: present
+  ttf-bitstream-vera: present
+  powerline: present
+  fonts-powerline: present
+
+tools:
+  colordiff: present
+  htop: present
+  most: present
+  ncdu: present
+  rsync: present
+  screen: present
+  unrar: present
+  wget: present
+
+browsers:
+  firefox: present
+
+latex:
+  texlive-full: absent
+  biber: absent
+
+office:
+  libreoffice-core: absent
+
+desktop:
+  arandr: present
+  compton: present
+  dropbox: present
+  rxvt-unicode-256color: present
+
+network:
+  dnsmasq: present
+
+...

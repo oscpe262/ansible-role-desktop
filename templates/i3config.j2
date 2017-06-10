@@ -1,0 +1,372 @@
+# i3 config file (v4)
+#
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+#
+# This config file uses keycodes and was written for the QWERTY
+# layout.
+#
+# To get a config file with the same key positions, but for your current
+# layout, use the i3-config-wizard
+#
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+font pango:Ubuntu Mono Bold 10
+#font pango:Source Code Pro Bold 9
+# Before i3 v4.8, we used to recommend this one as the default:
+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# The font above is very space-efficient, that is, it looks good, sharp and
+# clear in small sizes. However, its unicode glyph coverage is limited, the old
+# X core fonts rendering does not support right-to-left and this being a bitmap
+# font, it doesn’t scale on retina/hidpi displays.
+
+# Hybrid colors
+set $back               #1d1F21
+set $black              #282A2E
+set $grey               #373B41
+set $lightgrey          #707880
+set $white              #C5C8C6
+set $yellow             #F0C674
+set $red                #CC6666
+set $darkred            #A54242
+set $green              #B5BD56
+
+{% if 'betelgeuse' in ansible_hostname %}
+set $maincolor #B5BD56
+{% elif 'saiph' in ansible_hostname %}
+set $maincolor #F0C674
+{% else %}
+set $maincolor #707880
+{% endif %}
+
+# use these keys for focus, movement, and resize directions when reaching for
+# the arrows is not convenient
+#set $up i
+#set $down k
+#set $left j
+#set $right l
+
+# use Mouse+Mod4 to drag floating windows to their wanted position
+floating_modifier Mod4
+
+# fullscreen
+bindsym Mod4+Shift+a fullscreen global
+bindsym Mod4+a fullscreen
+
+# start a terminal
+bindsym Mod4+Return exec urxvt
+
+# kill focused window
+bindsym Mod4+Shift+q kill
+
+# lock light-dm
+#bindsym Mod4+l exec dm-tool lock
+
+# start dmenu (a program launcher)
+#bindsym Mod4+d exec dmenu_run
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+bindsym Mod4+r exec --no-startup-id i3-dmenu-desktop --dmenu='rofi -dmenu -i'
+bindsym Mod1+Tab exec rofi -show window
+
+# change focus
+bindsym Mod4+$left focus left
+bindsym Mod4+$down focus down
+bindsym Mod4+$up focus up
+bindsym Mod4+$right focus right
+
+# alternatively, you can use the cursor keys:
+bindsym Mod4+Left focus left
+bindsym Mod4+Down focus down
+bindsym Mod4+Up focus up
+bindsym Mod4+Right focus right
+
+# move focused window
+bindsym Mod4+Shift+$left move left
+bindsym Mod4+Shift+$down move down
+bindsym Mod4+Shift+$up move up
+bindsym Mod4+Shift+$right move right
+
+# alternatively, you can use the cursor keys:
+bindsym Mod4+Shift+Left move left
+bindsym Mod4+Shift+Down move down
+bindsym Mod4+Shift+Up move up
+bindsym Mod4+Shift+Right move right
+
+# split in horizontal orientation
+bindsym Mod4+h split h
+
+# split in vertical orientation
+bindsym Mod4+v split v
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym Mod4+s layout stacking
+bindsym Mod4+d layout tabbed
+bindsym Mod4+e layout toggle split
+
+# toggle tiling / floating
+bindsym Mod4+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym Mod4+space focus mode_toggle
+
+# focus the parent container
+#Bindsym Mod4+a focus parent
+
+# focus the child container
+#Bindsym Mod4+d focus child
+
+# move the currently focused window to the scratchpad
+bindsym Mod4+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym Mod4+minus scratchpad show
+
+# switch to workspace
+bindsym Mod4+1 workspace 1
+bindsym Mod4+2 workspace 2
+bindsym Mod4+3 workspace 3
+bindsym Mod4+4 workspace 4
+bindsym Mod4+5 workspace 5
+bindsym Mod4+6 workspace 6
+bindsym Mod4+7 workspace 7
+bindsym Mod4+8 workspace 8
+bindsym Mod4+9 workspace 9
+bindsym Mod4+0 workspace 10
+bindsym Mod4+Control+Up workspace next_on_output
+bindsym Mod4+Control+Down workspace prev_on_output
+bindsym Mod4+Control+Right workspace next
+bindsym Mod4+Control+Left workspace prev
+
+# move focused container to workspace
+bindsym Mod4+Shift+1 move container to workspace 1
+bindsym Mod4+Shift+2 move container to workspace 2
+bindsym Mod4+Shift+3 move container to workspace 3
+bindsym Mod4+Shift+4 move container to workspace 4
+bindsym Mod4+Shift+5 move container to workspace 5
+bindsym Mod4+Shift+6 move container to workspace 6
+bindsym Mod4+Shift+7 move container to workspace 7
+bindsym Mod4+Shift+8 move container to workspace 8
+bindsym Mod4+Shift+9 move container to workspace 9
+bindsym Mod4+Shift+0 move container to workspace 10
+bindsym Mod1+Control+Right move container to workspace next
+bindsym Mod1+Control+Left move container to workspace prev
+bindsym Mod1+Control+Up move container to workspace next_on_output
+bindsym Mod1+Control+Down move container to workspace prev_on_output
+
+# reload the configuration file
+bindsym Mod4+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+#bindsym Mod4+Shift+r restart
+bindsym Mod4+Shift+r exec ~/.scripts/tempmonswitch ; restart
+# exit i3 (logs you out of your X session)
+bindsym Mod4+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will gRrow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym $left       resize shrink width 10 px or 10 ppt
+        bindsym $down       resize grow height 10 px or 10 ppt
+        bindsym $up         resize shrink height 10 px or 10 ppt
+        bindsym $right      resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up          resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym Mod4+Shift+z mode "resize"
+
+{# Regular i3bar #}
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+  status_command i3status --config ~/.config/i3status.conf
+	position bottom
+#	tray_output none
+	font pango: Source Code Pro for Powerline Semibold 8
+# font pango: Ubuntu Mono Semibold 9
+	strip_workspace_numbers no
+	colors {
+	        background $back
+		      statusline $white
+		      separator  $back
+    #-----------------------------------------------------#
+		#			              border      backg       text      #
+    #-----------------------------------------------------#
+		focused_workspace	  $maincolor  $maincolor  $back
+	  active_workspace   	$white      $back       $maincolor
+		inactive_workspace 	$white      $back       $white
+		urgent_workspace   	$maincolor  $maincolor  $back
+		}
+}
+
+{#
+bar {
+  i3bar_command ~/.i3/lemonbar/i3_lemonbar.py
+}
+ 
+#}
+
+{#
+exec --no-startup-id powerline-lemonbar --i3 --clicks --height 16 -- -a 40 -b -f "DejaVu Sans Mono for Powerline-10" -f "FontAwesome-10"
+#}
+#Border style <normal|1pixel|none|pixel n>
+new_window normal
+new_float none
+
+# Hide vertical borders
+#hide_edge_borders both
+new_window normal 0 px
+# Window specific rules, syntax: [for_window <criteria> command]
+for_window [class="xbmc.bin"] fullscreen
+for_window [class="Kodi"] fullscreen
+for_window [class="plexhometheater"] fullscreen
+#for_window [class=Firefox] border none
+for_window [class="Google-chrome-stable"] floating
+
+# Finch
+#assign [title="finch"] Finch
+#bindsym Mod4+F12 workspace Finch
+#for_window [title="finch"] move workspace Finch
+
+# Chromium
+assign [class="Chromium"] WWW
+bindsym Mod4+w workspace WWW
+for_window [class="chromium"] move workspace WWW
+
+# Firefox
+assign [class="Firefox"] WWW
+for_window [class="Firefox"] move workspace WWW
+
+# Vivaldi
+assign [class="Vivaldi*"] WWW
+for_window [class="Vivaldi*"] move workspace WWW
+
+# Bravery
+assign [class="brave"] WWW
+for_window [class="brave"] move workspace WWW
+
+# Opera
+assign [class="Opera"] WWW
+for_window [class="Opera"] move workspace WWW
+
+# Spotify
+assign [class="Spotify"] Spotify
+for_window [class="Spotify"] move workspace Spotify
+
+# Nylas N1
+assign [class="Nylas*"] Mail
+for_window [class="Nylas*"] move workspace Mail
+bindsym Mod4+m workspace Mail
+
+# VMM
+assign [class="Virt-manager"] VMM
+for_window [class="Virt-manager"] move workspace VMM
+bindsym Mod4+n workspace VMM
+
+# Transmission
+#assign [title="transmission-remote-cli"] Transmission
+#for_window [title="transmission-remote-cli"] move workspace Transmission
+
+# TDDI41
+assign [class="UXTerm"] UML
+for_window [class="UXTerm"] move workspace UML
+bindsym Mod4+u workspace UML
+
+# ncmpcpp
+assign [title="ncmpcpp.*"] MPC
+for_window [title="ncmpcpp.*"] move workspace MPC 
+
+# newsbeuter
+assign [title="newsbeuter.*"] RSS
+for_window [title="newsbeuter.*"] move workspace RSS
+
+# gimp
+assign [class="Gimp"] gimp
+bindsym Mod4+g workspace gimp
+for_window [title="GIMP Startup"] move workspace gimp
+#for_window [window_role="gimp-image-window"] floating disable; move left;
+for_window [window_role="gimp-toolbox"] floating disable; layout stacking; move right; resize shrink right 31px or 31 ppt
+for_window [window_role="gimp-dock"] floating disable; layout stacking; move right; resize shrink right 31 px or 31 ppt
+
+# thunar
+#assign [class="Thunar"] FileMgr
+#bindsym mod4+shift+f workspace FileMgr
+#for_window [class="Thunar"] move workspace FileMgr
+
+# Autostart
+exec ~/.scripts/autostart
+
+# Colours
+#-----------------------------------------------------------------#
+# class                 border  background  text        indicator
+#-----------------------------------------------------------------#
+client.focused          $back   $maincolor  $back       $back
+client.focused_inactive $back   $back       $maincolor  $back
+client.unfocused        $back   $back       $maincolor  $back
+client.urgent           $back   $white      $back       $back
+#client.placeholder     $back   $black      $white      $black
+
+# Mouse-over focus <yes|no>
+focus_follows_mouse yes
+
+# Popups during fullscreen mode <smart|ignore|leave_fullscreen>
+popup_during_fullscreen smart
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec amixer -q set Master playback 5%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master playback 5%- unmute
+bindsym XF86AudioMute exec amixer -q set Master toggle
+
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+
+# Touchpad controls
+bindsym XF86TouchpadToggle exec ~/.scripts/toggletouchpad.sh # toggle touchpad
+
+# Application Shortcuts
+#bindsym mod4+Shift+w exec chromium
+#bindsym mod4+Shift+w exec firefox
+bindsym mod4+Shift+w exec vivaldi-snapshot
+#bindsym mod4+Shift+w exec brave
+bindsym Mod4+shift+m exec nylas
+#bindsym mod4+f exec nautilus
+bindsym mod4+f exec thunar
+#bindsym mod4+f exec sunflower
+
+#gaps inner 5
+#gaps outer 3
+
+{% if 'betelgeuse' in ansible_hostname %}
+workspace 1 output DVI-I-1
+workspace 2 output DVI-D-0
+workspace 3 output DVI-I-1
+workspace 4 output DVI-D-0
+workspace 5 output DVI-I-1
+workspace 6 output DVI-D-0
+workspace 7 output DVI-I-1
+workspace 8 output DVI-D-0
+workspace 9 output DVI-I-1
+workspace 0 output DVI-D-0
+workspace WWW output DVI-D-0
+workspace mail output DVI-D-0
+workspace VMM output DVI-D-0
+workspace Mint output DVI-D-0
+{% endif %}

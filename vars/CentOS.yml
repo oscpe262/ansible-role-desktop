@@ -1,0 +1,66 @@
+## roles/desktop/vars/CentOS.yml
+# General variables associated with this role.
+# vim:ft=ansible:
+---
+xorg:
+  xorg-x11-drv-keyboard: present
+  xorg-x11-drv-libinput: present
+  mesa-libGL-devel: present
+
+i3:
+  #arandr: present
+  #compton: present
+  dmenu: present
+  i3: present
+  #rofi: present
+
+#media:
+  #ffmpeg: present
+  #kodi: present
+  #kodi-addons: present
+
+appearance:
+  #ttf-dejavu: present
+  #ttf-bitstream-vera: present
+  #powerline-common: present
+  powerline-fonts: absent
+  #xcursor-themes: present
+
+tools:
+  colordiff: present
+  htop: present
+  #most: present
+  pavucontrol: present
+  rsync: present
+  screen: present
+  unrar: present
+  wget: present
+
+browsers:
+  firefox: present
+
+desktop:
+  evince: present
+  #galculator: present
+  gimp: present
+  gparted: present
+  gvfs-mtp: present
+  #nitrogen: present
+  #viewnior: present
+
+network:
+  dnsmasq: present
+  network-manager-applet: present
+
+latex:
+  texlive: present
+  texlive-latex: present
+  texlive-xetex: present
+  texlive-collection-latex: present
+  texlive-collection-latexrecommended: present
+  texlive-xetex-def: present
+  texlive-collection-xetex: present
+
+create:
+  inkscape: present
+...
