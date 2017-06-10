@@ -6,6 +6,7 @@ An Ansible role for setting up something for whatever purpose.
 
 ## Role Variables
 `foopkg` (`true|false`) declares whether package groups are to be installed.
+
 | Variable                       | Default                          | Comments (type)  |
 | :---                           | :---                             | :---             |
 |`xorgpkg`| `true` ||
