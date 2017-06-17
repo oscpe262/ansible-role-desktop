@@ -1,6 +1,8 @@
 # Ansible role 'desktop'
 
-An Ansible role for setting up something for whatever purpose.
+An Ansible role for setting up desktop environments. What to include is in this kind of role is of course
+highly subjective, but I've included what I use and have tried to keep it as modular as possible. Suggestions
+to how to improve is always welcome.
 
 ## Requirements
 
