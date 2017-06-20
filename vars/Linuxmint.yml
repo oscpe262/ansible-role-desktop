@@ -19,6 +19,12 @@ appearance:
   powerline: present
   fonts-powerline: present
 
+sound:
+  alsa-tools: present
+  alsa-utils: present
+  pulseaudio: present
+  pulseaudio-utils: present
+
 tools:
   colordiff: present
   htop: present

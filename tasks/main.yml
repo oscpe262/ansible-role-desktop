@@ -18,7 +18,16 @@
   ignore_errors: yes
   tags: xorg
 
-## Install custom keyboard layout. Can be disregarded.
+## Install sound stuff
+- name: "Install Sound"
+  package:
+    name: '{{ item.key }}'
+    state: '{{ item.value }}'
+  with_dict: '{{ sound }}'
+  when: xorgpkg == true
+  tags: sound
+
+  ## Install custom keyboard layout. Can be disregarded.
 - name: OP keybinding
   template:
     src: op.j2

@@ -19,6 +19,11 @@ i3:
   #kodi: present
   #kodi-addons: present
 
+sound:
+  alsa-utils: present
+  alsa-plugins-pulseaudio: present
+  pulseaudio: present
+
 appearance:
   #ttf-dejavu: present
   #ttf-bitstream-vera: present

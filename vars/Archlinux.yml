@@ -36,6 +36,12 @@ media:
   spotify: present
   vlc: present
 
+sound:
+  alsa-utils: present
+  alsa-plugins: present
+  pulseaudio: present
+  pulseaudio-alsa: present
+
 appearance:
   awoken-icons: present
   mediterraneannight-theme: present

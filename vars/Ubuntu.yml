@@ -22,6 +22,12 @@ media:
   kodi: present
   vlc: present
 
+sound:
+  alsa-tools: present
+  alsa-utils: present
+  pulseaudio: present
+  pulseaudio-utils: present
+
 appearance:
   ttf-dejavu: present
   ttf-bitstream-vera: present
