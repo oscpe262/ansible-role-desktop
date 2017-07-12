@@ -3,14 +3,12 @@
 # vim:ft=ansible:
 ---
 xorg:
-  xorg-server: present
-  xorg-server-utils: present
-  xorg-server-xwayland: present
-  xorg-xinit xorg-xkill: present
+  xorg: present
+  xorg-xinit: present
+  xorg-xkill: present
   xf86-input-synaptics: present
   xf86-input-mouse: present
   xf86-input-keyboard: present
-  xf86-input-wacom: absent
   xf86-input-libinput: present
   mesa: present
 
@@ -67,6 +65,7 @@ appearance:
 tools:
   colordiff: present
   downgrade: present
+  enpass-bin: present
   gparted: present
   gtk3-print-backends: present
   gvfs-mtp: present

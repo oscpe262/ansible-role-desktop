@@ -3,7 +3,7 @@
 # vim:ft=ansible:
 ---
 - name: "Install i3"
-  pacaur:
+  yaourt:
     name: '{{ item.key }}'
   become: true
   become_user: '{{ i3user }}'
@@ -12,7 +12,7 @@
   tags: i3
 
 - name: "Install KDE"
-  pacaur:
+  yaourt:
     name: '{{ item.key }}'
   become: true
   become_user: '{{ i3user }}'
@@ -21,7 +21,7 @@
   tags: kde
 
 - name: "Install media players and codecs"
-  pacaur:
+  yaourt:
     name: '{{ item.key }}'
   become: true
   become_user: '{{ i3user }}'
@@ -30,7 +30,7 @@
   tags: media
 
 - name: "Install icons, themes, powerline, fonts ..."
-  pacaur:
+  yaourt:
     name: '{{ item.key }}'
   become: true
   become_user: '{{ i3user }}'
@@ -39,7 +39,7 @@
   tags: appearance
 
 - name: "Install useful tools"
-  pacaur:
+  yaourt:
     name: '{{ item.key }}'
   become: true
   become_user: '{{ i3user }}'
@@ -48,7 +48,7 @@
   tags: tools
 
 - name: "Install browsers"
-  pacaur:
+  yaourt:
     name: '{{ item.key }}'
   become: true
   become_user: '{{ i3user }}'
@@ -57,7 +57,7 @@
   tags: browsers
 
 - name: "Install desktop applications"
-  pacaur:
+  yaourt:
     name: '{{ item.key }}'
   become: true
   become_user: '{{ i3user }}'
@@ -66,7 +66,7 @@
   tags: i3,kde
 
 - name: "Install network applications"
-  pacaur:
+  yaourt:
     name: '{{ item.key }}'
   become: true
   become_user: '{{ i3user }}'
@@ -75,7 +75,7 @@
   tags: network,i3
 
 - name: "Install LaTeX"
-  pacaur:
+  yaourt:
     name: '{{ item.key }}'
   become: true
   become_user: '{{ i3user }}'
@@ -84,7 +84,7 @@
   tags: latex
 
 - name: "Install office applications"
-  pacaur:
+  yaourt:
     name: '{{ item.key }}'
   become: true
   become_user: '{{ i3user }}'
@@ -94,7 +94,7 @@
 ################################
 
 - name: Creation applications
-  pacaur:
+  yaourt:
     name: '{{ item.key }}'
   become: true
   become_user: '{{ i3user }}'
@@ -103,7 +103,7 @@
   tags: betelgeuse
 
 - name: K290 keyboard
-  pacaur:
+  yaourt:
     name: '{{ item }}'
   become: true
   become_user: '{{ i3user }}'
