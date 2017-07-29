@@ -76,5 +76,6 @@
     - { name: 'i3config.j2', dest: '/home/{{ i3user }}/.config/i3/config' }
     - { name: 'i3status.conf.j2', dest: '/home/{{ i3user }}/.config/i3status.conf' }
   tags: i3
+  ignore_errors: yes
   when: i3pkg == true
 ...
