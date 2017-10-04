@@ -40,7 +40,7 @@
   tags: keybinding
 
 ## Run distribution specific installs.
-- include: '{{ outer_dist }}'
+- include_tasks: '{{ outer_dist }}'
   with_first_found:
     - "{{ ansible_distribution }}.yml"
     - "{{ ansible_os_family }}.yml"
