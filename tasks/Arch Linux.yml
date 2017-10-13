@@ -5,6 +5,7 @@
 - name: "Install i3"
   yaourt:
     name: '{{ item.key }}'
+    state: '{{ item.value }}'
   become: true
   become_user: '{{ i3user }}'
   with_dict: '{{ i3 }}'
@@ -14,6 +15,7 @@
 - name: "Install KDE"
   yaourt:
     name: '{{ item.key }}'
+    state: '{{ item.value }}'
   become: true
   become_user: '{{ i3user }}'
   with_dict: '{{ kde }}'
@@ -23,6 +25,7 @@
 - name: "Install media players and codecs"
   yaourt:
     name: '{{ item.key }}'
+    state: '{{ item.value }}'
   become: true
   become_user: '{{ i3user }}'
   with_dict: '{{ media }}'
@@ -32,6 +35,7 @@
 - name: "Install icons, themes, powerline, fonts ..."
   yaourt:
     name: '{{ item.key }}'
+    state: '{{ item.value }}'
   become: true
   become_user: '{{ i3user }}'
   with_dict: '{{ appearance }}'
@@ -42,6 +46,7 @@
 - name: "Install useful tools"
   yaourt:
     name: '{{ item.key }}'
+    state: '{{ item.value }}'
   become: true
   become_user: '{{ i3user }}'
   with_dict: '{{ tools }}'
@@ -51,6 +56,7 @@
 - name: "Install browsers"
   yaourt:
     name: '{{ item.key }}'
+    state: '{{ item.value }}'
   become: true
   become_user: '{{ i3user }}'
   with_dict: '{{ browsers }}'
@@ -60,6 +66,7 @@
 - name: "Install desktop applications"
   yaourt:
     name: '{{ item.key }}'
+    state: '{{ item.value }}'
   become: true
   become_user: '{{ i3user }}'
   with_dict: '{{ desktop }}'
@@ -69,6 +76,7 @@
 - name: "Install network applications"
   yaourt:
     name: '{{ item.key }}'
+    state: '{{ item.value }}'
   become: true
   become_user: '{{ i3user }}'
   with_dict: '{{ network }}'
@@ -78,6 +86,7 @@
 - name: "Install LaTeX"
   yaourt:
     name: '{{ item.key }}'
+    state: '{{ item.value }}'
   become: true
   become_user: '{{ i3user }}'
   with_dict: '{{ latex }}'
@@ -87,6 +96,7 @@
 - name: "Install office applications"
   yaourt:
     name: '{{ item.key }}'
+    state: '{{ item.value }}'
   become: true
   become_user: '{{ i3user }}'
   with_dict: '{{ office }}'
@@ -97,6 +107,7 @@
 - name: Creation applications
   yaourt:
     name: '{{ item.key }}'
+    state: '{{ item.value }}'
   become: true
   become_user: '{{ i3user }}'
   with_dict: '{{ create }}'
@@ -106,6 +117,7 @@
 - name: K290 keyboard
   yaourt:
     name: '{{ item }}'
+    state: '{{ item.value }}'
   become: true
   become_user: '{{ i3user }}'
   with_items:
