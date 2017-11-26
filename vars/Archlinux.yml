@@ -17,7 +17,7 @@ i3:
   arandr: present
   compton: present
   dmenu: present
-  i3bar-icons: present
+#  i3bar-icons: present
   lxappearance: present
   nitrogen: present
   rofi: present
@@ -42,7 +42,7 @@ sound:
 
 appearance:
   awoken-icons: present
-  mediterraneannight-theme: present
+#  mediterraneannight-theme: present
   numix-icon-theme-git: present
   oomox-git: present
   papirus-color-scheme: present
@@ -57,7 +57,7 @@ appearance:
   ttf-dejavu: present
   ttf-font-awesome: present
   ttf-font-icons: present
-  ttf-hack: absent
+#  ttf-hack: absent
   vibrancy-colors: present
   xcursor-numix: present
   xcursor-themes: present
@@ -83,8 +83,8 @@ tools:
 
 browsers:
   firefox: present
-  vivaldi-snapshot: present
-  vivaldi-snapshot-ffmpeg-codecs: present
+  vivaldi: present
+  vivaldi-codecs-ffmpeg-extra-bin: present
 
 desktop:
   dropbox: present
@@ -112,8 +112,8 @@ latex:
   texlive-most: present
   texlive-bin: present
   biber: present
-  latex-acm-sig: present
-  latex-beamer: present
+  latex-template-acm: absent
+  #latex-beamer-ctan: present
   latex-tikz-er2: present
 
 office:

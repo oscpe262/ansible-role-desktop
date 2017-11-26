@@ -316,6 +316,10 @@ for_window [title="Enpass"] move workspace Enpass
 
 # Autostart
 exec ~/.scripts/autostart
+exec setxkbmap op
+{% if 'RedHat' in ansible_os_family %}
+exec xrandr --output Virtual-0 --mode 1920x1200
+{% endif %}
 
 # Colours
 #-----------------------------------------------------------------#
@@ -347,8 +351,8 @@ bindsym XF86TouchpadToggle exec ~/.scripts/toggletouchpad.sh # toggle touchpad
 
 # Application Shortcuts
 #bindsym mod4+Shift+w exec chromium
-#bindsym mod4+Shift+w exec firefox
-bindsym mod4+Shift+w exec vivaldi-snapshot
+bindsym mod4+Shift+w exec firefox
+#bindsym mod4+Shift+w exec vivaldi-snapshot
 #bindsym mod4+Shift+w exec brave
 bindsym Mod4+shift+m exec nylas
 #bindsym mod4+f exec nautilus

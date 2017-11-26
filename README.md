@@ -4,6 +4,8 @@ An Ansible role for setting up desktop environments. What to include is in this 
 highly subjective, but I've included what I use and have tried to keep it as modular as possible. Suggestions
 to how to improve is always welcome.
 
+TODO: Fix glyphs not showing properly in CentOS
+
 ## Requirements
 
 ## Role Variables

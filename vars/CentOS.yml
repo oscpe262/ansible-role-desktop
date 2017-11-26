@@ -8,16 +8,17 @@ xorg:
   mesa-libGL-devel: present
 
 i3:
-  #arandr: present
-  #compton: present
   dmenu: present
   i3: present
+  #arandr: present
+  #compton: present
   #rofi: present
 
 #media:
   #ffmpeg: present
   #kodi: present
   #kodi-addons: present
+  #spotify: present
 
 sound:
   alsa-utils: present
@@ -28,17 +29,17 @@ appearance:
   #ttf-dejavu: present
   #ttf-bitstream-vera: present
   #powerline-common: present
-  powerline-fonts: absent
+  #powerline-fonts: present
   #xcursor-themes: present
 
 tools:
   colordiff: present
   htop: present
-  #most: present
+  most: present
   pavucontrol: present
   rsync: present
   screen: present
-  unrar: present
+  unar: present
   wget: present
 
 browsers:
@@ -52,6 +53,10 @@ desktop:
   gvfs-mtp: present
   #nitrogen: present
   #viewnior: present
+  rxvt-unicode-256color-ml: present
+  thunar: present
+  thunar-volman: present
+  thunar-archive-plugin: present
 
 network:
   dnsmasq: present

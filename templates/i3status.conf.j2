@@ -14,12 +14,16 @@ order += "wireless wlp2s0"
 {% endif %}
 order += "disk /"
 {% if 'betelgeuse' in ansible_hostname %}
-order += "disk /LVM/Downloads"
-order += "disk /LVM"
+order += "disk /zfs/Downloads"
+order += "disk /zfs"
 {% endif %}
+{% if 'guest' not in ansible_virtualization_role %}
 order += "cpu_temperature 0"
 order += "volume master"
-{% if 'saiph' in ansible_hostname %}
+{% else %}
+order += "battery 0"
+{% endif %}
+{% if laptop == 'true' %}
 order += "battery 0"
 {% endif %}
 order += "tztime local"
@@ -48,7 +52,7 @@ battery 0 {
 	low_threshold = "15"
 	min_width = 100
 	align = "center"
-
+  format_down = "Virtual Machine: [ {{ ansible_hostname }} ]"
 }
 
 volume master {
@@ -63,6 +67,8 @@ tztime local {
         format = " %H:%M:%S"
 }
 
+
+
 disk "/" {
   format = " ✓ (%avail / %total)"
 	low_threshold = "25"
@@ -71,13 +77,13 @@ disk "/" {
 #	min_width = 220
 #	align = "center"
 }
-disk "/LVM/Downloads" {
+disk "/zfs/Downloads" {
   format = " ⌂ (%avail / %total) "
 	low_threshold = "25"
 	threshold_type = "percentage_avail"
 	prefix_type = "decimal"
 }
-disk "/LVM" {
+disk "/zfs" {
   format = "⛀ (%avail / %total) "
 	low_threshold = "50"
 	threshold_type = "gbytes_avail"

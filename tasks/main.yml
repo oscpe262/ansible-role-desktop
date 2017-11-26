@@ -48,11 +48,20 @@
     loop_var: outer_dist
 
 ## Fluff ...
-- name: Tomorrow-Night KDE colour scheme
+- name: Tomorrow-Night KDE colour scheme (assure dir exists)
+  file:
+    path: /usr/share/color-schemes
+    state: directory
+    mode: 0770
+    owner: root
+    group: root
+  when: kdepkg == true
+
+- name: Tomorrow-Night KDE colour scheme (template)
   template:
     src: TomorrowNight.colors.j2
     dest: /usr/share/color-schemes/TomorrowNight.colors
-  when: kdepkg== true
+  when: kdepkg == true
 
 ## Assure i3 config exists
 - name: .config/i3 dir

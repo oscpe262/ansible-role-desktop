@@ -17,5 +17,7 @@ createpkg: true
 
 i3user: foo
 i3group: users
+
+laptop: false
 ...
 

@@ -17,7 +17,7 @@ i3:
   arandr: present
   compton: present
   dmenu: present
-  i3bar-icons: present
+#  i3bar-icons: present
   lxappearance: present
   nitrogen: present
   rofi: present
@@ -113,7 +113,7 @@ latex:
   texlive-bin: present
   biber: present
   latex-template-acm: absent
-  latex-beamer-ctan: present
+  #latex-beamer-ctan: present
   latex-tikz-er2: present
 
 office:
