@@ -36,7 +36,7 @@ set $green              #B5BD56
 {% if 'betelgeuse' in ansible_hostname %}
 set $maincolor #B5BD56
 {% elif 'saiph' in ansible_hostname %}
-set $maincolor #F0C674
+set $maincolor #CC6666
 {% else %}
 set $maincolor #707880
 {% endif %}
@@ -240,23 +240,25 @@ for_window [class="plexhometheater"] fullscreen
 #for_window [class=Firefox] border none
 for_window [class="Google-chrome-stable"] floating
 
+{#
 # Finch
 #assign [title="finch"] Finch
 #bindsym Mod4+F12 workspace Finch
 #for_window [title="finch"] move workspace Finch
-
-# Chromium
-assign [class="Chromium"] WWW
+#}
 bindsym Mod4+w workspace WWW
-for_window [class="chromium"] move workspace WWW
 
 # Firefox
 assign [class="Firefox"] WWW
 for_window [class="Firefox"] move workspace WWW
 
-# Vivaldi
+{# Vivaldi
 assign [class="Vivaldi*"] WWW
 for_window [class="Vivaldi*"] move workspace WWW
+
+# Chromium
+assign [class="Chromium"] WWW
+for_window [class="chromium"] move workspace WWW
 
 # Bravery
 assign [class="brave"] WWW
@@ -265,6 +267,7 @@ for_window [class="brave"] move workspace WWW
 # Opera
 assign [class="Opera"] WWW
 for_window [class="Opera"] move workspace WWW
+#}
 
 # Spotify
 assign [class="Spotify"] Spotify
@@ -284,18 +287,15 @@ bindsym Mod4+n workspace VMM
 #assign [title="transmission-remote-cli"] Transmission
 #for_window [title="transmission-remote-cli"] move workspace Transmission
 
-# TDDI41
-assign [class="UXTerm"] UML
-for_window [class="UXTerm"] move workspace UML
-bindsym Mod4+u workspace UML
-
 # ncmpcpp
 assign [title="ncmpcpp.*"] MPC
 for_window [title="ncmpcpp.*"] move workspace MPC 
 
+{#
 # newsbeuter
 assign [title="newsbeuter.*"] RSS
 for_window [title="newsbeuter.*"] move workspace RSS
+#}
 
 # gimp
 assign [class="Gimp"] gimp
@@ -307,7 +307,7 @@ for_window [window_role="gimp-dock"] floating disable; layout stacking; move rig
 
 # Enpass
 assign [class="Enpass"] Enpass
-for_window [title="Enpass"] move workspace Enpass
+for_window [class="Enpass"] move workspace Enpass
 
 # thunar
 #assign [class="Thunar"] FileMgr
@@ -317,7 +317,7 @@ for_window [title="Enpass"] move workspace Enpass
 # Autostart
 exec ~/.scripts/autostart
 exec setxkbmap op
-{% if 'RedHat' in ansible_os_family %}
+{% if 'guest' in ansible_virtualization_role %}
 exec xrandr --output Virtual-0 --mode 1920x1200
 {% endif %}
 
@@ -343,24 +343,28 @@ bindsym XF86AudioLowerVolume exec amixer -q set Master playback 5%- unmute
 bindsym XF86AudioMute exec amixer -q set Master toggle
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+bindsym XF86MonBrightnessUp   exec brightnessctl s 10%+ # increase screen brightness
+bindsym XF86MonBrightnessDown exec brightnessctl s 10%- # decrease screen brightness
 
 # Touchpad controls
 bindsym XF86TouchpadToggle exec ~/.scripts/toggletouchpad.sh # toggle touchpad
 
 # Application Shortcuts
-#bindsym mod4+Shift+w exec chromium
 bindsym mod4+Shift+w exec firefox
-#bindsym mod4+Shift+w exec vivaldi-snapshot
-#bindsym mod4+Shift+w exec brave
+{# 
+#bindsym mod4+Shift+w exec chromium
+bindsym mod4+Shift+w exec vivaldi-snapshot
+bindsym mod4+Shift+w exec brave
+#}
 bindsym Mod4+shift+m exec nylas
-#bindsym mod4+f exec nautilus
 bindsym mod4+f exec thunar
-#bindsym mod4+f exec sunflower
+{#
+bindsym mod4+f exec nautilus
+bindsym mod4+f exec sunflower
 
 #gaps inner 5
 #gaps outer 3
+#}
 
 {% if 'betelgeuse' in ansible_hostname %}
 workspace 1 output DVI-I-1
