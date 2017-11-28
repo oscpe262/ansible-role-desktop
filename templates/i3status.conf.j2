@@ -10,7 +10,7 @@ general {
 
 #order += "ipv6"
 {% if 'saiph' in ansible_hostname %}
-order += "wireless wlp2s0"
+order += "wireless wlp58s0"
 {% endif %}
 order += "disk /"
 {% if 'betelgeuse' in ansible_hostname %}
@@ -23,13 +23,14 @@ order += "volume master"
 {% else %}
 order += "battery 0"
 {% endif %}
-{% if laptop == 'true' %}
+{% if laptop == true %}
 order += "battery 0"
+order += "battery 1"
 {% endif %}
 order += "tztime local"
 
 
-wireless wlp2s0 {
+wireless wlp58s0 {
         format_up = "%essid %frequency %bitrate %ip"
         format_down = "⚠ Not Connected ⚠"
 	min_width = 650
@@ -38,7 +39,7 @@ wireless wlp2s0 {
 
 cpu_temperature 0 {
 	format = " %degrees° "
-	path = "/sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input"
+	path = "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input"
 	max_threshold = "60"
 }
 
@@ -50,9 +51,22 @@ battery 0 {
 	status_bat  = "⚡"
 	status_full = "☻"
 	low_threshold = "15"
-	min_width = 100
+	min_width = 10
 	align = "center"
   format_down = "Virtual Machine: [ {{ ansible_hostname }} ]"
+}
+
+battery 1 {
+        format = " %status %percentage"
+	last_full_capacity = "true"
+	integer_battery_capacity = "true"
+	status_chr = "⚇"
+	status_bat  = "⚡"
+	status_full = "☻"
+	low_threshold = "15"
+	min_width = 10
+	align = "center"
+  format_down = ""
 }
 
 volume master {

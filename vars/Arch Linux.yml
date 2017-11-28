@@ -83,8 +83,8 @@ tools:
 
 browsers:
   firefox: present
-  vivaldi: present
-  vivaldi-codecs-ffmpeg-extra-bin: present
+  vivaldi: absent
+  vivaldi-codecs-ffmpeg-extra-bin: absent
 
 desktop:
   dropbox: present
