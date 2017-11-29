@@ -41,7 +41,10 @@ sound:
   pulseaudio-alsa: present
 
 appearance:
+  adwaita-icon-theme: present
+  gtk-theme-arc-grey-git: present
   awoken-icons: present
+  breeze-icons: present
 #  mediterraneannight-theme: present
   numix-icon-theme-git: present
   oomox-git: present
@@ -59,6 +62,7 @@ appearance:
   ttf-font-icons: present
 #  ttf-hack: absent
   vibrancy-colors: present
+  xcursor-bmz: present
   xcursor-numix: present
   xcursor-themes: present
 
