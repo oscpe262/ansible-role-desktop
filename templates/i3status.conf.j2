@@ -9,8 +9,8 @@ general {
 }
 
 #order += "ipv6"
-{% if 'saiph' in ansible_hostname %}
-order += "wireless wlp58s0"
+{% if laptop == true %}
+order += "wireless {{ wlp }}"
 {% endif %}
 order += "disk /"
 {% if 'betelgeuse' in ansible_hostname %}
@@ -30,7 +30,7 @@ order += "battery 1"
 order += "tztime local"
 
 
-wireless wlp58s0 {
+wireless {{ wlp }} {
         format_up = "%essid %frequency %bitrate %ip"
         format_down = "⚠ Not Connected ⚠"
 	min_width = 650

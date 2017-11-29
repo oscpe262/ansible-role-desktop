@@ -27,7 +27,9 @@ TODO: Fix glyphs not showing properly in CentOS
 |`createpkg`| `true`||
 |`i3user`| foo ||
 |`i3group`| users ||
-
+|`laptop` | `false` | set to true for laptops, will provide battery info etc. |
+| `maincolor` | B5BD56 | Hex color value, for i3 |
+| `wlp` | wlp58s0 | wireless device name |
 
 ## Dependencies
 No playbook dependencies, but for Arch Linux pacaur needs to be installed along with a pacaur module, such as

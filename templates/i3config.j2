@@ -33,13 +33,7 @@ set $red                #CC6666
 set $darkred            #A54242
 set $green              #B5BD56
 
-{% if 'betelgeuse' in ansible_hostname %}
-set $maincolor #B5BD56
-{% elif 'saiph' in ansible_hostname %}
-set $maincolor #CC6666
-{% else %}
-set $maincolor #707880
-{% endif %}
+set $maincolor #{{ maincolor }}
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient

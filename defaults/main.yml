@@ -19,5 +19,7 @@ i3user: foo
 i3group: users
 
 laptop: false
+maincolor: B5BD56
+wlp: wlp58s0
 ...
 
