@@ -1,0 +1,156 @@
+## roles/desktop/tasks/Fedora.yml
+## Role main file
+# vim:ft=ansible:
+---
+- name: "Install i3"
+  dnf: 
+    name='{{ item.key }}'
+    state='{{ item.value }}'
+  with_dict: '{{ i3 }}'
+  when: i3pkg == true
+  tags: i3
+
+- name: "Install KDE"
+  dnf: 
+    name: "@^KDE Plasma Workspaces"
+  when: kdepkg == true
+  tags: kde
+
+## TODO: No packages, make manual install
+#- name: "Install media players and codecs"
+#  dnf:
+#    name='{{ item.key }}'
+#    state='{{ item.value }}'
+#  with_dict: '{{ media }}'
+#  when: mediapkg == true
+#  tags: media
+#- name: "Install Spotify repo"
+#  dnf:
+#    name: 'https://negativo17.org/repos/fedora-spotify.repo'
+#    state: present
+#  when: mediapkg == true
+#  tags: media
+
+#- name: "Install Spotify client"
+#  dnf:
+#    name: spotify-client
+#    state: present
+#  when: mediapkg == true
+#  tags: media
+
+- name: Are powerline fonts installed?
+  stat:
+    path: '/home/{{ i3user }}/.local/share/fonts/Anonymice Powerline.ttf'
+  register: plfonts_check
+  ignore_errors: yes
+  tags: appearance
+
+- name: "Clone powerline-fonts (git)"
+  git:
+    repo: 'https://github.com/powerline/fonts.git'
+    dest: /tmp/fonts
+    clone: yes
+  when: appearancepkg == true and plfonts_check.stat.exists == False
+  ignore_errors: yes
+  tags: appearance
+
+- name: "Install powerline-fonts"
+  become: true
+  become_user: '{{ i3user }}'
+  command: /tmp/fonts/install.sh
+  when: appearancepkg == true and plfonts_check.stat.exists == False
+  tags: appearance
+
+- name: "Install useful tools"
+  dnf:
+    name='{{ item.key }}'
+    state='{{ item.value }}'
+  with_dict: '{{ tools }}'
+  when: toolspkg == true
+  tags: tools
+
+- name: "Install browsers"
+  dnf: 
+    name='{{ item.key }}'
+    state='{{ item.value }}'
+  with_dict: '{{ browsers }}'
+  when: browserspkg == true
+  tags: browsers
+
+- name: "Install desktop applications"
+  dnf:
+    name='{{ item.key }}'
+    state='{{ item.value }}'
+  with_dict: '{{ desktop }}'
+  when: i3pkg == true or desktoppkg == true
+  tags: i3,kde,urxvt
+
+- name: Make urxvt plugin directory
+  file:
+    path: '/home/{{ i3user }}/.urxvt/ext/'
+    state: directory
+    mode: 0770
+    owner: '{{ i3user }}'
+    group: '{{ i3group }}'
+  when: desktoppkg == true
+  tags: urxvt,i3,kde
+
+- name: "Urxvt plugins install"
+  get_url:
+    url: 'https://raw.githubusercontent.com/{{ item }}'
+    dest: '/home/{{ i3user }}/.urxvt/ext/'
+  with_items:
+    - 'majutsushi/urxvt-font-size/master/font-size'
+    - 'pkkolos/urxvt-scripts/master/vtwheel'
+  when: desktoppkg == true
+  tags: urxvt,i3,kde
+
+- name: "Install network applications"
+  dnf:
+    name='{{ item.key }}'
+    state='{{ item.value }}'
+  with_dict: '{{ network }}'
+  when: i3pkg == true or networkpkg == true
+  tags: network,i3
+
+- name: "Install LaTeX"
+  dnf:
+    name='{{ item.key }}'
+    state='{{ item.value }}'
+  with_dict: '{{ latex }}'
+  when: latexpkg == true
+  tags: latex
+
+- name: "Install office applications"
+  dnf: name='{{ item }}'
+  with_items:
+    - 'libreoffice'
+    - 'libreoffice-langpack-sv'
+  when: officepkg == true
+  tags: office
+
+- name: Creation applications
+  dnf:
+    name='{{ item.key }}'
+    state='{{ item.value }}'
+  with_dict: '{{ create }}'
+  when: "'betelgeuse' in ansible_hostname"
+  tags: betelgeuse
+
+- name: "Enable Services"
+  service:
+    name: '{{ item }}'
+    enabled: yes
+  with_items:
+#    - sddm
+    - accounts-daemon
+    - NetworkManager
+  ignore_errors: yes
+  tags: NetworkManager
+
+# nitrogen lxappearance
+# xcursor-themes
+# gtk-themes
+# enpass
+# nylas
+...
