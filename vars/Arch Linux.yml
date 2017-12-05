@@ -21,6 +21,7 @@ i3:
   lxappearance: present
   nitrogen: present
   rofi: present
+  conky: present
 
 kde:
   kde-applications: present

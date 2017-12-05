@@ -87,4 +87,16 @@
   tags: i3
   ignore_errors: yes
   when: i3pkg == true
+
+- name: i3 conky bar
+  template:
+    src: conkyrc.j2
+    dest: '/home/{{ i3user }}/.config/conkyrc'
+    owner: '{{ i3user }}'
+    group: '{{ i3group }}'
+  tags: i3
+  when: i3pkg == true
+# install conky on non-Arch distros
+# copy conky-i3-script, 
+#fix proper colors, remove mem
 ...
