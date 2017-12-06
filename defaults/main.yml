@@ -22,12 +22,11 @@ laptop: false
 maincolor: B5BD56
 wlp: wlp58s0
 
-colorcpu: 262626
-colormem: 8C9440
+colorcpu: 373B41
 colortemp: 262626
-colorwlp: 5F8190
+colorwlp: 373B41
 colormus: 262626
-colordate: 5E8D87
+colordate: 373B41
 colortime: 262626
 ...
 

@@ -96,7 +96,15 @@
     group: '{{ i3group }}'
   tags: i3
   when: i3pkg == true
+
+- name: i3 conky run script
+  template:
+    src: conky-i3bar
+    dest: '/home/{{ i3user }}/.config/conky-i3bar'
+    owner: '{{ i3user }}'
+    group: '{{ i3group }}'
+    mode: 0770
+  tags: i3
+  when: i3pkg == true
 # install conky on non-Arch distros
-# copy conky-i3-script, 
-#fix proper colors, remove mem
 ...

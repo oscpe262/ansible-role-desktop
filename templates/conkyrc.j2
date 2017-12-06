@@ -14,10 +14,8 @@ conky.text = [[
 [
 	# CPU
   {"full_text": "<span foreground='\#{{ colorcpu }}'></span><span background='\#{{ colorcpu }}'>  $cpu% </span>", "markup": "pango", "separator":false, "separator_block_width":0},
-	# Ram
-  {"full_text": "<span foreground='\#{{ colormem }}' background='\#{{ colorcpu }}'></span><span background='\#{{ colormem }}'>  $mem/$memmax </span>", "markup": "pango", "separator":false, "separator_block_width":0},
     	# Temperature
-      {"full_text": "<span foreground='\#{{ colortemp }}' background='\#{{ colormem }}'></span><span background='\#{{ colortemp }}'> ${hwmon temp 1}°C </span>",
+      {"full_text": "<span foreground='\#{{ colortemp }}' background='\#{{ colorcpu }}'></span><span background='\#{{ colortemp }}'> ${hwmon temp 1}°C </span>",
 	"markup": "pango", "separator":false, "separator_block_width":0},
     	# Network
       {"full_text": "<span background='\#{{ colorwlp }}'><span background='\#{{ colortemp }}' foreground='\#{{ colorwlp }}'></span>   ${wireless_bitrate {{ wlp }}} ${wireless_link_qual_perc {{ wlp }}}% ${downspeed {{ wlp }}}${upspeed {{ wlp }}}</span><span background='\#{{ colorwlp }}' foreground='\#{{ colormus }}'></span>", "markup": "pango", "separator":false, "separator_block_width": 0},
