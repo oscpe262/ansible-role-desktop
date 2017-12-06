@@ -18,12 +18,12 @@ conky.text = [[
       {"full_text": "<span foreground='\#{{ colortemp }}' background='\#{{ colorcpu }}'></span><span background='\#{{ colortemp }}'> ${hwmon temp 1}°C </span>",
 	"markup": "pango", "separator":false, "separator_block_width":0},
     	# Network
-      {"full_text": "<span background='\#{{ colorwlp }}'><span background='\#{{ colortemp }}' foreground='\#{{ colorwlp }}'></span>   ${wireless_bitrate {{ wlp }}} ${wireless_link_qual_perc {{ wlp }}}% ${downspeed {{ wlp }}}${upspeed {{ wlp }}}</span><span background='\#{{ colorwlp }}' foreground='\#{{ colormus }}'></span>", "markup": "pango", "separator":false, "separator_block_width": 0},
+      {"full_text": "<span background='\#{{ colorwlp }}'><span background='\#{{ colortemp }}' foreground='\#{{ colorwlp }}'></span>   ${wireless_bitrate {{ wlp }}} ${wireless_link_qual_perc {{ wlp }}}% ${downspeed {{ wlp }}}${upspeed {{ wlp }}} </span><span background='\#{{ colorwlp }}' foreground='\#{{ colormus }}'></span>", "markup": "pango", "separator":false, "separator_block_width": 0},
 	# Cmus
-  {"full_text":"<span background='\#{{ colormus }}'> ♫ ${execi 2 cmus-remote -Q 2>/dev/null | grep -w artist | cut -d " " -f 3- } - ${execi 2 cmus-remote -Q 2>/dev/null | grep -w title | cut -d " " -f 3-} </span>","separator": false, "separator_block_width":0, "markup": "pango"},
+  {"full_text":"<span background='\#{{ colormus }}'>  ⛀ ${fs_free /} /${fs_size /} ⛀ ${fs_free /zfs} / ${fs_size /zfs} </span>","separator": false, "separator_block_width":0, "markup": "pango"},
   {"full_text":"<span background='\#{{ colormus }}' foreground='\#{{ colordate }}'></span>","separator": false, "separator_block_width":0, "markup": "pango"},
      	# Date:
-	{"full_text": "<span background='\#1793d1' foreground='\#{{ colordate }}'></span><span background='\#{{ colordate }}'>  ${time %x} </span><span background='\#{{ colordate }}' foreground='\#{{ colortime }}'></span>",
+	{"full_text": "<span background='\#1793d1' foreground='\#{{ colordate }}'></span><span background='\#{{ colordate }}'>   ${time %b %d} </span><span background='\#{{ colordate }}' foreground='\#{{ colortime }}'></span>",
 	"separator": false, "separator_block_width": 0, "markup": "pango"},
 	# Time:
     	{"full_text":"<span background='\#{{ colortime }}'>  ${time %X} </span>","separator":false, "separator_block_width":0, "markup": "pango" },
