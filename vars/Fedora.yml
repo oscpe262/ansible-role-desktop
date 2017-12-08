@@ -14,6 +14,7 @@ i3:
   #rofi: present
   lxappearance: present
   nitrogen: present
+  conky: present
 
 #media:
   #ffmpeg: present
@@ -58,6 +59,7 @@ desktop:
   thunar: present
   thunar-volman: present
   thunar-archive-plugin: present
+  xterm: present
 
 network:
   dnsmasq: present
