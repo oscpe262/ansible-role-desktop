@@ -301,6 +301,12 @@ for_window [class="Enpass"] move workspace Enpass
 # Autostart
 exec ~/.scripts/autostart
 exec setxkbmap op
+{% if 'Arch' in ansible_distribution %}
+exec compton
+exec dropbox
+exec nitrogen --restore
+exec enpass
+{% endif %}
 {% if 'guest' in ansible_virtualization_role %}
 exec xrandr --output Virtual-0 --mode 1920x1200
 {% endif %}
