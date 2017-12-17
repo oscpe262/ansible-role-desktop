@@ -96,7 +96,7 @@ desktop:
   evince: present
   galculator: present
   gimp: present
-  nylas-mail-bin: present
+  mailspring: present
   profile-sync-daemon: present
   thunar-dropbox: present
   thunar-extended: present
