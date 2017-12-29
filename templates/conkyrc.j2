@@ -12,21 +12,25 @@ conky.config = {
 
 conky.text = [[
 [
-	# CPU
-  {"full_text": "<span foreground='\#{{ colorcpu }}'></span><span background='\#{{ colorcpu }}'>  $cpu% </span>", "markup": "pango", "separator":false, "separator_block_width":0},
-    	# Temperature
-      {"full_text": "<span foreground='\#{{ colortemp }}' background='\#{{ colorcpu }}'></span><span background='\#{{ colortemp }}'> ${hwmon temp 1}°C </span>",
+# CPU
+  {"full_text": "<span foreground='\#{{ c1 }}'></span><span background='\#{{ c1 }}'>  $cpu% </span>", "markup": "pango", "separator":false, "separator_block_width":0},
+# Temperature
+      {"full_text": "<span foreground='\#{{ c2 }}' background='\#{{ c1 }}'></span><span background='\#{{ c2 }}'> ${hwmon temp 1}°C </span>",
 	"markup": "pango", "separator":false, "separator_block_width":0},
-    	# Network
-      {"full_text": "<span background='\#{{ colorwlp }}'><span background='\#{{ colortemp }}' foreground='\#{{ colorwlp }}'></span>   ${wireless_bitrate {{ wlp }}}  ${downspeed {{ wlp }}}${upspeed {{ wlp }}} </span><span background='\#{{ colorwlp }}' foreground='\#{{ colormus }}'></span>", "markup": "pango", "separator":false, "separator_block_width": 0},
-	# Cmus
-  {"full_text":"<span background='\#{{ colormus }}'>  ⛀ ${fs_free /} /${fs_size /}  ⛁ ${fs_free /zfs} / ${fs_size /zfs} </span>","separator": false, "separator_block_width":0, "markup": "pango"},
-  {"full_text":"<span background='\#{{ colormus }}' foreground='\#{{ colordate }}'></span>","separator": false, "separator_block_width":0, "markup": "pango"},
-     	# Date:
-	{"full_text": "<span background='\#1793d1' foreground='\#{{ colordate }}'></span><span background='\#{{ colordate }}'>   ${time %b %d} </span><span background='\#{{ colordate }}' foreground='\#{{ colortime }}'></span>",
+# Network
+      {"full_text": "<span background='\#{{ c1 }}'><span background='\#{{ c2 }}' foreground='\#{{ c1 }}'></span>   ${wireless_essid} ${wireless_bitrate {{ wlp }}}  </span><span background='\#{{ c1 }}' foreground='\#{{ c2 }}'></span>", "markup": "pango", "separator":false, "separator_block_width": 0},
+# Cmus
+  {"full_text":"<span background='\#{{ c2 }}'>  ⛀ ${fs_free /} /${fs_size /}  </span>","separator": false, "separator_block_width":0, "markup": "pango"},
+  {"full_text":"<span background='\#{{ c2 }}' foreground='\#{{ c1 }}'></span>","separator": false, "separator_block_width":0, "markup": "pango"},
+  {"full_text":"<span background='\#{{ c1 }}'>  ⛁ ${fs_free /zfs} / ${fs_size /zfs}  </span>","separator": false, "separator_block_width":0, "markup": "pango"},
+  {"full_text":"<span background='\#{{ c1 }}' foreground='\#{{ c2 }}'></span>","separator": false, "separator_block_width":0, "markup": "pango"},
+  {"full_text":"<span background='\#{{ c2 }}'>   \uf240  ${battery_short BAT0} ${battery_short BAT1} </span>","separator": false, "separator_block_width":0, "markup": "pango"},
+  {"full_text":"<span background='\#{{ c2 }}' foreground='\#{{ c1 }}'></span>","separator": false, "separator_block_width":0, "markup": "pango"},
+# Date:
+{"full_text": "<span background='\#{{ c1 }}' foreground='\#{{ c1 }}'></span><span background='\#{{ c1 }}'>   ${time %b %d} </span><span background='\#{{ c1 }}' foreground='\#{{ c2 }}'></span>",
 	"separator": false, "separator_block_width": 0, "markup": "pango"},
-	# Time:
-    	{"full_text":"<span background='\#{{ colortime }}'>  ${time %X} </span>","separator":false, "separator_block_width":0, "markup": "pango" },
-	{"full_text": "<span foreground='\#{{ colortime }}'>\ue0bc</span>", "markup": "pango", "separator": false, "separator_block_width": 0}
+# Time:
+    	{"full_text":"<span background='\#{{ c2 }}'>  ${time %X} </span>","separator":false, "separator_block_width":0, "markup": "pango" },
+	{"full_text": "<span foreground='\#{{ c2 }}'>\ue0bc</span>", "markup": "pango", "separator": false, "separator_block_width": 0}
 ],
 ]]
