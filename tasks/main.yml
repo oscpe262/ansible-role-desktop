@@ -99,11 +99,14 @@
 
 - name: i3 conky run script
   template:
-    src: conky-i3bar
-    dest: '/home/{{ i3user }}/.config/conky-i3bar'
+    src: '{{ item }}.j2'
+    dest: '/home/{{ i3user }}/.config/{{ item }}'
     owner: '{{ i3user }}'
     group: '{{ i3group }}'
     mode: 0770
+  with_items:
+    - conky-i3bar
+    - i3temp.sh
   tags: i3
   when: i3pkg == true
 # install conky on non-Arch distros

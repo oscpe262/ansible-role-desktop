@@ -13,9 +13,9 @@ general {
 order += "wireless {{ wlp }}"
 {% endif %}
 order += "disk /"
-{% if 'betelgeuse' in ansible_hostname %}
-order += "disk /zfs/Downloads"
 order += "disk /zfs"
+{% if 'betelgeuse' in ansible_hostname %}
+#order += "disk /zfs/Downloads"
 {% endif %}
 {% if 'guest' not in ansible_virtualization_role %}
 order += "cpu_temperature 0"
@@ -101,7 +101,7 @@ disk "/zfs" {
   format = "⛀ (%avail / %total) "
 	low_threshold = "50"
 	threshold_type = "gbytes_avail"
-	format_not_mounted="⛀ N/A"
+	format_not_mounted=" /zfs N/A"
 	prefix_type = "decimal"
 	min_width = 120
 	align = "center"

@@ -13,7 +13,10 @@ xorg:
   mesa: present
 
 i3:
-  i3: present
+  i3-wm: present
+  i3blocks: present
+  i3lock: present
+  i3status: present
   arandr: present
   compton: present
   dmenu: present
