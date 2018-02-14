@@ -3,55 +3,55 @@
 # vim:ft=ansible:
 ---
 xorg:
-  xorg: present
+  - xorg
 
 i3:
-  dmenu: present
-  i3: present
-  rofi: present
+  - dmenu
+  - i3
+  - rofi
 
 media:
-  vlc: present
+  - vlc
 
 appearance:
-  ttf-dejavu: present
-  ttf-bitstream-vera: present
-  powerline: present
-  fonts-powerline: present
+  - ttf-dejavu
+  - ttf-bitstream-vera
+  - powerline
+  - fonts-powerline
 
 sound:
-  alsa-tools: present
-  alsa-utils: present
-  pulseaudio: present
-  pulseaudio-utils: present
+  - alsa-tools
+  - alsa-utils
+  - pulseaudio
+  - pulseaudio-utils
 
 tools:
-  colordiff: present
-  htop: present
-  most: present
-  ncdu: present
-  rsync: present
-  screen: present
-  unrar: present
-  wget: present
+  - colordiff
+  - htop
+  - most
+  - ncdu
+  - rsync
+  - screen
+  - unrar
+  - wget
 
 browsers:
-  firefox: present
+  - firefox
 
 latex:
-  texlive-full: absent
-  biber: absent
+  - texlive-full
+  - biber
 
 office:
-  libreoffice-core: absent
+  - libreoffice-core
 
 desktop:
-  arandr: present
-  compton: present
-  dropbox: present
-  rxvt-unicode-256color: present
+  - arandr
+  - compton
+  - dropbox
+  - rxvt-unicode-256color
 
 network:
-  dnsmasq: present
+  - dnsmasq
 
 ...

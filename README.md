@@ -5,6 +5,7 @@ highly subjective, but I've included what I use and have tried to keep it as mod
 to how to improve is always welcome.
 
 TODO: Re-check Fedora packages to make it equivalent to Arch.
+      Change from dict to list on packages, use groups for Fedora
 
 ## Requirements
 

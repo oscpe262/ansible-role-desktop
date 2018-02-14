@@ -3,135 +3,129 @@
 # vim:ft=ansible:
 ---
 xorg:
-  xorg: present
-  xorg-xinit: present
-  xorg-xkill: present
-  xf86-input-synaptics: present
-  xf86-input-mouse: present
-  xf86-input-keyboard: present
-  xf86-input-libinput: present
-  mesa: present
+  - xorg
+  - xorg-xinit
+  - xorg-xkill
+  - xf86-input-synaptics
+  - xf86-input-mouse
+  - xf86-input-keyboard
+  - xf86-input-libinput
+  - mesa
 
 i3:
-  i3-wm: present
-  i3blocks: present
-  i3lock: present
-  i3status: present
-  arandr: present
-  compton: present
-  dmenu: present
-#  i3bar-icons: present
-  lxappearance: present
-  nitrogen: present
-  rofi: present
-  conky: present
+  - i3-wm
+  - i3blocks
+  - i3lock
+  - i3status
+  - arandr
+  - compton
+  - dmenu
+  - lxappearance
+  - nitrogen
+  - rofi
+  - conky
 
 kde:
-  kde-applications: present
-  plasma: present
+  - kde-applications
+  - plasma
 
 media:
-  codecs64: present
-  ffmpeg: present
-  kodi-addons: present
-  kodi: present
-  spotify: present
-  vlc: present
+  - codecs64
+  - ffmpeg
+  - kodi-addons
+  - kodi
+  - spotify
+  - vlc
 
 sound:
-  alsa-utils: present
-  alsa-plugins: present
-  pulseaudio: present
-  pulseaudio-alsa: present
+  - alsa-utils
+  - alsa-plugins
+  - pulseaudio
+  - pulseaudio-alsa
 
 appearance:
-  adwaita-icon-theme: present
-  gtk-theme-arc-grey-git: present
-  awoken-icons: present
-  breeze-icons: present
-#  mediterraneannight-theme: present
-  numix-icon-theme-git: present
-  oomox-git: present
-  papirus-color-scheme: present
-  papirus-dark-plasma-theme-git: present
-  papirus-icon-theme-git: present
-  papirus-plasma-theme: present
-  powerline-common: present
-  powerline-fonts-git: present
-  powerline: present 
-  sddm-archlinux-theme-git: present
-  ttf-bitstream-vera: present
-  ttf-dejavu: present
-  ttf-font-awesome: present
-  ttf-font-icons: present
-#  ttf-hack: absent
-  vibrancy-colors: present
-  xcursor-bmz: present
-  xcursor-numix: present
-  xcursor-themes: present
+  - adwaita-icon-theme
+  - gtk-theme-arc-grey-git
+  - awoken-icons
+  - breeze-icons
+  - numix-icon-theme-git
+  - oomox-git
+  - papirus-color-scheme
+  - papirus-dark-plasma-theme-git
+  - papirus-icon-theme-git
+  - papirus-plasma-theme
+  - powerline-common
+  - powerline-fonts-git
+  - powerline 
+  - sddm-archlinux-theme-git
+  - ttf-bitstream-vera
+  - ttf-dejavu
+  - ttf-font-awesome
+  - ttf-font-icons
+  - vibrancy-colors
+  - xcursor-bmz
+  - xcursor-numix
+  - xcursor-themes
 
 tools:
-  colordiff: present
-  downgrade: present
-  enpass-bin: present
-  gparted: present
-  gtk3-print-backends: present
-  gvfs-mtp: present
-  lm_sensors: present
-  lvm2: present
-  mdadm: present
-  mlocate: present
-  most: present
-  pavucontrol: present
-  rsync: present
-  screen: present
-  unrar: present
-  update-grub: present
-  wget: present
+  - colordiff
+  - downgrade
+  - enpass-bin
+  - gparted
+  - gtk3-print-backends
+  - gvfs-mtp
+  - lm_sensors
+  - lvm2
+  - mdadm
+  - mlocate
+  - most
+  - pavucontrol
+  - rsync
+  - screen
+  - unrar
+  - update-grub
+  - wget
 
 browsers:
-  firefox: present
-  vivaldi: absent
-  vivaldi-codecs-ffmpeg-extra-bin: absent
+  - firefox
 
 desktop:
-  dropbox: present
-  evince: present
-  galculator: present
-  gimp: present
-  mailspring: present
-  profile-sync-daemon: present
-  thunar-dropbox: present
-  thunar-extended: present
-  thunar-thumbnailers-openraster: present
-  rxvt-unicode-patched: present
-  urxvt-font-size-git: present
-  urxvt-vtwheel: present
-  viewnior: present
-  xdg-user-dirs: present
+  - dropbox
+  - evince
+  - galculator
+  - gimp
+  - mailspring
+  - profile-sync-daemon
+  - thunar-dropbox
+  - thunar-extended
+  - thunar-thumbnailers-openraster
+  - rxvt-unicode-patched
+  - urxvt-font-size-git
+  - urxvt-vtwheel
+  - viewnior
+  - xdg-user-dirs
 
 network:
-  dnsmasq: present
-  network-manager-applet: present
-  networkmanager: present
-  nm-connection-editor: present
+  - dnsmasq
+  - network-manager-applet
+  - networkmanager
+  - nm-connection-editor
 
 latex:
-  texlive-most: present
-  texlive-bin: present
-  biber: present
-  latex-template-acm: absent
-  #latex-beamer-ctan: present
-  latex-tikz-er2: present
+  - texlive-most
+  - texlive-bin
+  - biber
+  - #latex-beamer-ctan
+  - latex-tikz-er2
 
 office:
-  libreoffice-fresh: present
-  libreoffice-fresh-sv: present
+  - libreoffice-fresh
+  - libreoffice-fresh-sv
 
 create:
-  blender: present
-  inkscape: present
+  - blender
+  - inkscape
 
 k290:
-  k290-fnkeyctl: present
+  - k290-fnkeyctl
 ...

@@ -1,71 +1,59 @@
-## roles/desktop/vars/RedHat.yml
+## roles/desktop/vars/CentOS.yml
 # General variables associated with this role.
 # vim:ft=ansible:
 ---
 xorg:
-  xorg-x11-drv-keyboard: present
-  xorg-x11-drv-libinput: present
-  mesa-libGL-devel: present
+  - xorg-x11-drv-keyboard
+  - xorg-x11-drv-libinput
+  - mesa-libGL-devel
 
 i3:
-  #arandr: present
-  #compton: present
-  dmenu: present
-  i3: present
-  #rofi: present
-
-#media:
-  #ffmpeg: present
-  #kodi: present
-  #kodi-addons: present
+  - dmenu
+  - i3
 
 sound:
-  alsa-utils: present
-  alsa-plugins-pulseaudio: present
-  pulseaudio: present
+  - alsa-utils
+  - alsa-plugins-pulseaudio
+  - pulseaudio
 
 appearance:
-  #ttf-dejavu: present
-  #ttf-bitstream-vera: present
-  #powerline-common: present
-  powerline-fonts: absent
-  #xcursor-themes: present
 
 tools:
-  colordiff: present
-  htop: present
-  #most: present
-  pavucontrol: present
-  rsync: present
-  screen: present
-  unrar: present
-  wget: present
+  - colordiff
+  - htop
+  - most
+  - pavucontrol
+  - rsync
+  - screen
+  - unar
+  - wget
 
 browsers:
-  firefox: present
+  - firefox
 
 desktop:
-  evince: present
-  #galculator: present
-  gimp: present
-  gparted: present
-  gvfs-mtp: present
-  #nitrogen: present
-  #viewnior: present
+  - evince
+  - gimp
+  - gparted
+  - gvfs-mtp
+  - rxvt-unicode-256color-ml
+  - thunar
+  - thunar-volman
+  - thunar-archive-plugin
 
 network:
-  dnsmasq: present
-  network-manager-applet: present
+  - dnsmasq
+  - network-manager-applet
 
 latex:
-  texlive: present
-  texlive-latex: present
-  texlive-xetex: present
-  texlive-collection-latex: present
-  texlive-collection-latexrecommended: present
-  texlive-xetex-def: present
-  texlive-collection-xetex: present
+  - texlive
+  - texlive-latex
+  - texlive-xetex
+  - texlive-collection-latex
+  - texlive-collection-latexrecommended
+  - texlive-xetex-def
+  - texlive-collection-xetex
 
 create:
-  inkscape: present
+  - inkscape
 ...

@@ -3,82 +3,82 @@
 # vim:ft=ansible:
 ---
 xorg:
-  xorg: present
+  - xorg
 
 i3:
-  arandr: present
-  compton: present
-  dmenu: present
-  i3: present
-  lxappearance: present
-  nitrogen: present
-  rofi: present
+  - arandr
+  - compton
+  - dmenu
+  - i3
+  - lxappearance
+  - nitrogen
+  - rofi
 
 kde:
-  plasma-desktop: present
+  - plasma-desktop
 
 media:
-  ffmpeg: present
-  kodi: present
-  vlc: present
+  - ffmpeg
+  - kodi
+  - vlc
 
 sound:
-  alsa-tools: present
-  alsa-utils: present
-  pulseaudio: present
-  pulseaudio-utils: present
+  - alsa-tools
+  - alsa-utils
+  - pulseaudio
+  - pulseaudio-utils
 
 appearance:
-  ttf-dejavu: present
-  ttf-bitstream-vera: present
-  powerline: present
-  fonts-powerline: present
-  numix-gtk-theme: present
-  numix-icon-theme: present
-  xcursor-themes: present
+  - ttf-dejavu
+  - ttf-bitstream-vera
+  - powerline
+  - fonts-powerline
+  - numix-gtk-theme
+  - numix-icon-theme
+  - xcursor-themes
 
 tools:
-  colordiff: present
-  gparted: present
-  htop: present
-  lm-sensors: present
-  lvm2: present
-  mdadm: present
-  mlocate: present
-  most: present
-  ncdu: present
-  pavucontrol: present
-  rsync: present
-  screen: present
-  unrar: present
-  wget: present
+  - colordiff
+  - gparted
+  - htop
+  - lm-sensors
+  - lvm2
+  - mdadm
+  - mlocate
+  - most
+  - ncdu
+  - pavucontrol
+  - rsync
+  - screen
+  - unrar
+  - wget
 
 browsers:
-  firefox: present
-  chromium-browser: present
-  chromium-codecs-ffmpeg: present
+  - firefox
+  - chromium-browser
+  - chromium-codecs-ffmpeg
 
 latex:
-  texlive-full: present
-  biber: present
-  latex-beamer: present
+  - texlive-full
+  - biber
+  - latex-beamer
 
 office:
-  libreoffice-core: absent
+  - libreoffice-core
 
 desktop:
-  evince: present
-  galculator: present
-  gimp: present
-  rxvt-unicode-256color: present
-  thunar-dropbox-plugin: present
-  viewnior: present
+  - evince
+  - galculator
+  - gimp
+  - rxvt-unicode-256color
+  - thunar-dropbox-plugin
+  - viewnior
 
 network:
-  dnsmasq: present
+  - dnsmasq
 
 create:
-  blender: present
-  inkscape: present
+  - blender
+  - inkscape
 
 ...

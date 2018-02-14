@@ -11,20 +11,20 @@
 ## Install Xorg packages
 - name: "Install Xorg"
   package:
-    name:  '{{ item.key }}'
-    state: '{{ item.value }}'
-  with_dict: '{{ xorg }}'
-  when: xorgpkg == true
+    name:  '{{ item }}'
+    state: present
+  with_flattened: '{{ xorg }}'
+  when: xorgpkg
   ignore_errors: yes
   tags: xorg
 
 ## Install sound stuff
 - name: "Install Sound"
   package:
-    name: '{{ item.key }}'
-    state: '{{ item.value }}'
-  with_dict: '{{ sound }}'
-  when: xorgpkg == true
+    name: '{{ item }}'
+    state: present
+  with_flattened: '{{ sound }}'
+  when: xorgpkg and 'Fedora' not in ansible_distribution
   tags: sound
 
   ## Install custom keyboard layout. Can be disregarded.
@@ -55,13 +55,13 @@
     mode: 0770
     owner: root
     group: root
-  when: kdepkg == true
+  when: kdepkg
 
 - name: Tomorrow-Night KDE colour scheme (template)
   template:
     src: TomorrowNight.colors.j2
     dest: /usr/share/color-schemes/TomorrowNight.colors
-  when: kdepkg == true
+  when: kdepkg
 
 ## Assure i3 config exists
 - name: .config/i3 dir
@@ -71,7 +71,7 @@
     mode: 0750
     owner: '{{ i3user }}'
     group: '{{ i3group }}'
-  when: i3pkg == true
+  when: i3pkg
 
 ## Modify i3 config
 - name: i3 configs
@@ -86,7 +86,7 @@
     - { name: 'i3status.conf.j2', dest: '/home/{{ i3user }}/.config/i3status.conf' }
   tags: i3
   ignore_errors: yes
-  when: i3pkg == true
+  when: i3pkg
 
 - name: i3 conky bar
   template:
@@ -95,7 +95,7 @@
     owner: '{{ i3user }}'
     group: '{{ i3group }}'
   tags: i3
-  when: i3pkg == true
+  when: i3pkg
 
 - name: i3 conky run script
   template:
@@ -108,6 +108,6 @@
     - conky-i3bar
     - i3temp.sh
   tags: i3
-  when: i3pkg == true
+  when: i3pkg
 # install conky on non-Arch distros
 ...
