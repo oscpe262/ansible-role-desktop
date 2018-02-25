@@ -18,6 +18,7 @@ i3:
 
 media:
   - '@Sound and Video'
+  - vlc
 
 appearance:
   - powerline-fonts
@@ -28,7 +29,7 @@ tools:
   - most
   - rsync
   - screen
-  - unar
+  - unrar
   - wget
 
 browsers:

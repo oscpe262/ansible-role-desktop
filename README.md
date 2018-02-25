@@ -5,7 +5,6 @@ highly subjective, but I've included what I use and have tried to keep it as mod
 to how to improve is always welcome.
 
 TODO: Re-check Fedora packages to make it equivalent to Arch.
-      Change from dict to list on packages, use groups for Fedora
 
 ## Requirements
 
@@ -35,6 +34,7 @@ TODO: Re-check Fedora packages to make it equivalent to Arch.
 ## Dependencies
 No playbook dependencies, but for Arch Linux pacaur needs to be installed along with a pacaur module, such as
 Austin Hyde's.
+For Fedora, rpm-fusion repos are required for default usage.
 
 ## Example Playbook
 ```Yaml
