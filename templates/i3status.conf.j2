@@ -11,6 +11,7 @@ general {
 #order += "ipv6"
 {% if laptop == true %}
 order += "wireless {{ wlp }}"
+order += "wireless wwp0s20f0u6i12"
 {% endif %}
 order += "disk /"
 order += "disk /zfs"
@@ -29,11 +30,17 @@ order += "battery 1"
 {% endif %}
 order += "tztime local"
 
-
 wireless {{ wlp }} {
         format_up = "%essid %frequency %bitrate %ip"
         format_down = "⚠ Not Connected ⚠"
-	min_width = 650
+	min_width = 350
+	align = "left"
+}
+
+wireless wwp0s20f0u6i12 {
+        format_up = "Modem %bitrate %ip"
+        format_down = "⚠ Not Connected ⚠"
+	min_width = 350
 	align = "left"
 }
 
