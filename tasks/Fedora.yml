@@ -44,7 +44,7 @@
     name: fedora-spotify
     description: "negativo17 - Spotify"
     baseurl: "https://negativo17.org/repos/spotify/fedora-$releasever/$basearch"
-    gpgkey: "https://negativo.17.org/repos/RPM-GPG-KEY-slaanesh"
+    gpgkey: "https://negativo17.org/repos/RPM-GPG-KEY-slaanesh"
     gpgcheck: yes
     state: present
   when: mediapkg
