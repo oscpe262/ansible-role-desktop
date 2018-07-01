@@ -1,6 +1,6 @@
 ## roles/desktop/tasks/Linuxmint.yml
 ## Role main file
-# vim:ft=ansible:
+# vim:ft=yaml.ansible:
 ---
 - name: Update cache Linuxmint
   apt:

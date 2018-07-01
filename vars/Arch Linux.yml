@@ -1,1 +1,131 @@
-Archlinux.yml
+## roles/desktop/vars/Archlinux.yml
+# General variables associated with this role.
+# vim:ft=yaml.ansible:
+---
+xorg:
+  - xorg
+  - xorg-xinit
+  - xorg-xkill
+  - xf86-input-synaptics
+  - xf86-input-mouse
+  - xf86-input-keyboard
+  - xf86-input-libinput
+  - mesa
+
+i3:
+  - i3-wm
+  - i3blocks
+  - i3lock
+  - i3status
+  - arandr
+  - compton
+  - dmenu
+  - lxappearance
+  - nitrogen
+  - rofi
+  - conky
+
+kde:
+  - kde-applications
+  - plasma
+
+media:
+  - codecs64
+  - ffmpeg
+  - kodi-addons
+  - kodi
+  - spotify
+  - vlc
+
+sound:
+  - alsa-utils
+  - alsa-plugins
+  - pulseaudio
+  - pulseaudio-alsa
+
+appearance:
+  - adwaita-icon-theme
+  - gtk-theme-arc-grey-git
+  - awoken-icons
+  - breeze-icons
+  - numix-icon-theme-git
+  - oomox-git
+  - papirus-color-scheme
+  - papirus-dark-plasma-theme-git
+  - papirus-icon-theme-git
+  - papirus-plasma-theme
+  - powerline-common
+  - powerline-fonts-git
+  - powerline 
+  - sddm-archlinux-theme-git
+  - ttf-bitstream-vera
+  - ttf-dejavu
+  - ttf-font-awesome
+  - ttf-font-icons
+  - vibrancy-colors
+  - xcursor-bmz
+  - xcursor-numix
+  - xcursor-themes
+
+tools:
+  - colordiff
+  - downgrade
+  - enpass-bin
+  - gparted
+  - gtk3-print-backends
+  - gvfs-mtp
+  - lm_sensors
+  - lvm2
+  - mdadm
+  - mlocate
+  - most
+  - pavucontrol
+  - rsync
+  - screen
+  - unrar
+  - update-grub
+  - wget
+
+browsers:
+  - firefox
+
+desktop:
+  - dropbox
+  - evince
+  - galculator
+  - gimp
+  - mailspring
+  - profile-sync-daemon
+  - thunar-dropbox
+  - thunar-extended
+  - thunar-thumbnailers-openraster
+  - rxvt-unicode-patched
+  - urxvt-font-size-git
+  - urxvt-vtwheel
+  - viewnior
+  - xdg-user-dirs
+
+network:
+  - dnsmasq
+  - network-manager-applet
+  - networkmanager
+  - nm-connection-editor
+
+latex:
+  - texlive-most
+  - texlive-bin
+  - biber
+  - #latex-beamer-ctan
+  - latex-tikz-er2
+
+office:
+  - libreoffice-fresh
+  - libreoffice-fresh-sv
+
+create:
+  - blender
+  - inkscape
+
+k290:
+  - k290-fnkeyctl
+...

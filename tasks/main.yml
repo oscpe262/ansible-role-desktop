@@ -1,6 +1,6 @@
 ## roles/desktop/tasks/main.yml
 ## Role main file
-# vim:ft=ansible:
+# vim:ft=yaml.ansible:
 ---
 ## Include distribution specific variables
 - include_vars: "{{ item }}"

@@ -1,6 +1,6 @@
 ## roles/desktop/tasks/CentOS.yml
 ## Role main file
-# vim:ft=ansible:
+# vim:ft=yaml.ansible:
 ---
 #- name: "Install rpmforge"
 #  yum: name=rpmforge-release

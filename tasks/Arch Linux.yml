@@ -1,6 +1,6 @@
 ## roles/desktop/tasks/Archlinux.yml
 ## Role main file
-# vim:ft=ansible:
+# vim:ft=yaml.ansible:
 ---
 - name: "Install i3"
   yaourt:

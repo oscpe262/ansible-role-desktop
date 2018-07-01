@@ -1,6 +1,6 @@
 ## roles/desktop/tasks/Fedora.yml
 ## Role main file
-# vim:ft=ansible:
+# vim:ft=yaml.ansible:
 ---
 - name: "Install i3 repo"
   yum_repository:

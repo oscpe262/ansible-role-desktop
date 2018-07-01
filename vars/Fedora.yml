@@ -1,6 +1,6 @@
 ## roles/desktop/vars/Fedora.yml
 # General variables associated with this role.
-# vim:ft=ansible:
+# vim:ft=yaml.ansible:
 ---
 xorg:
   - xorg-x11-drv-libinput

@@ -1,6 +1,6 @@
 ## roles/desktop/defaults/main.yml
 # Default variables for the role
-# vim:ft=ansible:
+# vim:ft=yaml.ansible:
 ---
 xorgpkg: true
 latexpkg: true 

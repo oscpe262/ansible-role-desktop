@@ -1,6 +1,6 @@
 ## roles/desktop/vars/Archlinux.yml
 # General variables associated with this role.
-# vim:ft=ansible:
+# vim:ft=yaml.ansible:
 ---
 xorg:
   - xorg
