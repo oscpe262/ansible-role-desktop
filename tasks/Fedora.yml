@@ -52,11 +52,14 @@
 
   ##  As running with --check flag won't include newly installed repos, 
   #   this will fail until the repo is actually installed.
-- name: "Install Spotify client"
+- name: "Install Spotify client and deps"
   dnf:
-    name: spotify-client
+    name: '{{item}}'
     enablerepo: fedora-spotify
     state: latest
+  with_flattened:
+    - spotify-client
+    - libXScrnSaver
   when: mediapkg
   ignore_errors: yes
   tags: media
