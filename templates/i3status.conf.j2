@@ -14,9 +14,10 @@ order += "wireless {{ wlp }}"
 order += "wireless wwp0s20f0u6i12"
 {% endif %}
 order += "disk /"
-order += "disk /zfs"
+order += "disk /home"
 {% if 'betelgeuse' in ansible_hostname %}
-#order += "disk /zfs/Downloads"
+order += "disk /md0"
+order += "disk /md1"
 {% endif %}
 {% if 'guest' not in ansible_virtualization_role %}
 order += "cpu_temperature 0"
@@ -98,17 +99,27 @@ disk "/" {
 #	min_width = 220
 #	align = "center"
 }
-disk "/zfs/Downloads" {
+disk "/home" {
   format = " ⌂ (%avail / %total) "
 	low_threshold = "25"
 	threshold_type = "percentage_avail"
 	prefix_type = "decimal"
 }
-disk "/zfs" {
+disk "/md0" {
   format = "⛀ (%avail / %total) "
 	low_threshold = "50"
 	threshold_type = "gbytes_avail"
-	format_not_mounted=" /zfs N/A"
+	format_not_mounted=" /md0 N/A"
+	prefix_type = "decimal"
+	min_width = 120
+	align = "center"
+#	align = "right"
+}
+disk "/md1" {
+  format = "⛀ (%avail / %total) "
+	low_threshold = "50"
+	threshold_type = "gbytes_avail"
+	format_not_mounted=" /md1 N/A"
 	prefix_type = "decimal"
 	min_width = 120
 	align = "center"
