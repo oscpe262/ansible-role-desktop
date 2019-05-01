@@ -46,5 +46,6 @@
     - "{{ ansible_os_family }}.yml"
   loop_control:
     loop_var: outer_dist
+  tags: i3,media,appearance,tools,browsers,kde,network,latex,office,create,NetworkManager
 
 ...
