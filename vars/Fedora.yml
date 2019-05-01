@@ -2,24 +2,6 @@
 # General variables associated with this role.
 # vim:ft=yaml.ansible:
 ---
-xorg:
-  - xorg-x11-drv-libinput
-  - mesa-libGL-devel
-
-i3:
-  - dmenu
-  - i3
-  - arandr
-  - compton
-  - rofi
-  - lxappearance
-  - nitrogen
-  - conky
-
-media:
-  - '@Sound and Video'
-  - vlc
-
 appearance:
   - powerline-fonts
 
@@ -45,7 +27,7 @@ desktop:
   - thunar
   - thunar-volman
   - thunar-archive-plugin
-  - xterm
+  - rxvt-unicode-256color-ml
 
 network:
   - dnsmasq

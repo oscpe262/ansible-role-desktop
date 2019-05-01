@@ -2,145 +2,73 @@
 ## Role main file
 # vim:ft=yaml.ansible:
 ---
-- name: "Install i3 repo"
-  yum_repository:
-    name: 'yaroslav-i3desktop'
-    description: 'Copr repo for i3desktop owned by yaroslav'
-    baseurl: 'https://copr-be.cloud.fedoraproject.org/results/yaroslav/i3desktop/fedora-$releasever-$basearch'
-    gpgcheck: yes
-    gpgkey: 'https://copr-be.cloud.fedoraproject.org/results/yaroslav/i3desktop/pubkey.gpg'
-    state: present
-  when: i3pkg
-  tags: i3
+- name: "Install rpmfusion repo"
+  include_role:
+    name: ansible-role-repo-rpmfusion
 
-  ##  As running with --check flag won't include newly installed repos, 
-  #   this will fail until the repo is actually installed.
 - name: "Install i3"
-  dnf: 
-    name: '{{ item }}'
-    state: present
-    enablerepo: yarolav-i3desktop
-  with_flattened: '{{ i3 }}'
+  include_role:
+    name: ansible-role-i3
   when: i3pkg
-  ignore_errors: yes
   tags: i3
-
-- name: "Install KDE"
-  dnf: 
-    name: "@^KDE Plasma Workspaces"
-  when: kdepkg
-  tags: kde
 
 - name: "Install media players and codecs"
-  dnf:
-    name: '{{ item }}'
-    state: present
-  with_flattened: '{{ media }}'
+  include_role:
+    name: ansible-role-mediaplayers
   when: mediapkg
   tags: media
 
-- name: "Install Spotify repo"
-  yum_repository:
-    name: fedora-spotify
-    description: "negativo17 - Spotify"
-    baseurl: "https://negativo17.org/repos/spotify/fedora-$releasever/$basearch"
-    gpgkey: "https://negativo17.org/repos/RPM-GPG-KEY-slaanesh"
-    gpgcheck: yes
-    state: present
-  when: mediapkg
-  tags: media
-
-  ##  As running with --check flag won't include newly installed repos, 
-  #   this will fail until the repo is actually installed.
-- name: "Install Spotify client and deps"
-  dnf:
-    name: '{{item}}'
-    enablerepo: fedora-spotify
-    state: latest
-  with_flattened:
-    - spotify-client
-    - libXScrnSaver
-  when: mediapkg
-  ignore_errors: yes
-  tags: media
-
-- name: Are powerline fonts installed?
-  stat:
-    path: '/home/{{ i3user }}/.local/share/fonts/Anonymice Powerline.ttf'
-  register: plfonts_check
-  ignore_errors: yes
-  tags: appearance
-
-- name: "Clone powerline-fonts (git)"
-  git:
-    repo: 'https://github.com/powerline/fonts.git'
-    dest: /tmp/fonts
-    clone: yes
-  when: appearancepkg and plfonts_check.stat.exists == False
-  ignore_errors: yes
-  tags: appearance
-
-- name: "Install powerline-fonts"
-  become: true
-  become_user: '{{ i3user }}'
-  command: /tmp/fonts/install.sh
-  when: appearancepkg and plfonts_check.stat.exists == False
+- name: "Install powerline fonts"
+  include_role:
+    name: ansible-role-fonts
+  when: appearancepkg
   tags: appearance
 
 - name: "Install useful tools"
   dnf:
-    name: '{{ item }}'
-    state: present
-  with_flattened: '{{ tools }}'
+    name: '{{ tools }}'
   when: toolspkg
   tags: tools
 
 - name: "Install browsers"
-  dnf: 
-    name: '{{ item }}'
-    state: present
-  with_flattened: '{{ browsers }}'
+  include_role:
+    name: ansible-role-browsers
   when: browserspkg
   tags: browsers
 
 - name: "Install desktop applications"
   dnf:
-    name: '{{ item }}'
+    name: '{{ desktop }}'
     state: present
-  with_flattened: '{{ desktop }}'
   when: i3pkg or desktoppkg
   tags: i3,kde
 
 - name: "Install network applications"
   dnf:
-    name: '{{ item }}'
+    name: '{{ network }}'
     state: present
-  with_flattened: '{{ network }}'
   when: i3pkg or networkpkg
   tags: network,i3
 
 - name: "Install LaTeX"
   dnf:
-    name: '{{ item }}'
+    name: '{{ latex }}'
     state: present
-  with_flattened: '{{ latex }}'
   when: latexpkg
   tags: latex
 
 - name: "Install office applications"
   dnf: 
-    name: '{{ item }}'
-  with_flattened:
-    - '@LibreOffice'
-    - 'libreoffice-langpack-sv'
+    name:
+      - '@LibreOffice'
+      - 'libreoffice-langpack-sv'
   when: officepkg
   tags: office
 
 - name: Creation applications
   dnf:
-    name: '{{ item }}'
+    name: '{{ create }}'
     state: present
-  with_flattened: '{{ create }}'
   when: createpkg
 
 - name: "Enable Services"
