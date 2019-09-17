@@ -7,7 +7,7 @@ allow_duplicates: no
 
 ## List of role dependencies
 dependencies:
-  - { role: ansible-role-repo-rpmfusion }
+  # - { role: ansible-role-repo-rpmfusion }
   # If dependency, remove brackets, list as suggested below:
   # - { role: foorole, some_parameter: 3, another_parameter: 4  }
 

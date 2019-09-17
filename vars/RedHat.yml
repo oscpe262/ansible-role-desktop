@@ -3,7 +3,7 @@
 # vim:ft=yaml.ansible:
 ---
 xorg:
-  - xorg-x11-drv-keyboard
+  #   - xorg-x11-drv-keyboard
   - xorg-x11-drv-libinput
   - mesa-libGL-devel
 
@@ -24,8 +24,8 @@ tools:
   - most
   - pavucontrol
   - rsync
-  - screen
-  - unar
+#  - screen
+#  - unar
   - wget
 
 browsers:

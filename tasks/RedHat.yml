@@ -1,0 +1,88 @@
+## roles/desktop/tasks/RedHat.yml
+## Role main file
+# vim:ft=yaml.ansible:
+---
+- name: "Install rpmfusion repo"
+  include_role:
+    name: ansible-role-repo-rpmfusion
+
+- name: "Install i3"
+  include_role:
+    name: ansible-role-i3
+  when: i3pkg
+  tags: i3
+
+- name: "Install media players and codecs"
+  include_role:
+    name: ansible-role-mediaplayers
+  when: mediapkg
+  tags: media
+
+- name: "Install powerline fonts"
+  include_role:
+    name: ansible-role-fonts
+  when: appearancepkg
+  tags: appearance
+
+- name: "Install useful tools"
+  dnf:
+    name: '{{ tools }}'
+  when: toolspkg
+  tags: tools
+
+#- name: "Install browsers"
+#  include_role:
+#    name: ansible-role-browsers
+#  when: browserspkg
+#  tags: browsers
+
+- name: "Install desktop applications"
+  dnf:
+    name: '{{ desktop }}'
+    state: present
+  when: i3pkg or desktoppkg
+  tags: i3,kde
+
+- name: "Install network applications"
+  dnf:
+    name: '{{ network }}'
+    state: present
+  when: i3pkg or networkpkg
+  tags: network,i3
+
+- name: "Install LaTeX"
+  dnf:
+    name: '{{ latex }}'
+    state: present
+  when: latexpkg
+  tags: latex
+
+- name: "Install office applications"
+  dnf: 
+    name:
+      - '@LibreOffice'
+      - 'libreoffice-langpack-sv'
+  when: officepkg
+  tags: office
+
+- name: Creation applications
+  dnf:
+    name: '{{ create }}'
+    state: present
+  when: createpkg
+
+- name: "Enable Services"
+  service:
+    name: '{{ item }}'
+    state: restarted
+    enabled: yes
+  with_flattened:
+    - NetworkManager
+  ignore_errors: yes
+  tags: NetworkManager
+
+# xcursor-themes
+# gtk-themes
+# enpass
+# nylas
+...
